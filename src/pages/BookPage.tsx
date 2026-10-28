@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, Send } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { RedLine, BrandBadge } from '../components/GoldMotif';
+import { BookCover } from '../components/BookCover';
 
 export const BookPage: React.FC = () => {
   const [inquiryEmail, setInquiryEmail] = useState('');
@@ -26,9 +27,14 @@ export const BookPage: React.FC = () => {
             An Author. A Life Coach. <br />
             <span className="italic font-normal">A Believer in Finding Your Way Back to Yourself.</span>
           </h1>
-          <p className="font-serif italic text-lg sm:text-xl text-[#C62828] font-semibold">
-            "{siteConfig.book.tagline}"
-          </p>
+          <div className="space-y-2">
+            <p className="font-serif italic text-lg sm:text-xl text-[#C62828] font-semibold">
+              "{siteConfig.book.subtitle}"
+            </p>
+            <p className="text-xs sm:text-sm text-[#666666]">
+              {siteConfig.book.tagline}
+            </p>
+          </div>
           <RedLine />
         </div>
 
@@ -37,20 +43,18 @@ export const BookPage: React.FC = () => {
           
           {/* Left Column: Book Cover Presentation */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="relative max-w-xs sm:max-w-sm w-full">
-              <div className="absolute -inset-3 bg-red-100/50 rounded-2xl blur-md -rotate-1" />
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#111111] bg-white p-2">
-                <img
-                  src={siteConfig.book.coverImage}
-                  alt="Welcome Back to Yourself by Anagha Sonde"
-                  className="w-full h-auto object-contain rounded"
-                />
-              </div>
+            <div className="w-full flex flex-col items-center">
+              <BookCover size="xl" badge="Official Memoir Cover" />
 
-              <div className="mt-4 p-4 rounded-xl bg-[#F5F5F5] border border-[#E5E5E5] text-center shadow-xs">
-                <p className="font-serif text-base font-bold text-[#111111]">Welcome Back to Yourself</p>
-                <p className="text-xs text-[#555555]">By Anagha Sonde</p>
-                <p className="text-[11px] text-[#C62828] font-bold mt-1">Personal Memoir • Self-Discovery</p>
+              <div className="mt-6 p-4 rounded-xl bg-[#F5F5F5] border border-[#E5E5E5] text-center shadow-xs w-full max-w-xs sm:max-w-sm space-y-1.5">
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-black text-white font-semibold">
+                  {siteConfig.book.pillarsStatement}
+                </span>
+                <p className="font-serif text-base font-bold text-[#111111]">{siteConfig.book.title}</p>
+                <p className="text-xs text-[#555555]">By {siteConfig.book.author}</p>
+                <p className="text-[11px] text-[#C62828] font-bold italic pt-1 border-t border-[#E5E5E5]">
+                  "{siteConfig.book.callout}"
+                </p>
               </div>
             </div>
 

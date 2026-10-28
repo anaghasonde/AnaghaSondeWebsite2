@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar } from 'lucide-react';
+import { Calendar, BookOpen } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { RedLine, BrandBadge } from '../components/GoldMotif';
 import { ServiceCard } from '../components/ServiceCard';
+import { BookCover } from '../components/BookCover';
 
 export const ServicesPage: React.FC = () => {
   return (
@@ -53,6 +54,43 @@ export const ServicesPage: React.FC = () => {
               <ServiceCard service={service} featured={index === 0} />
             </div>
           ))}
+        </div>
+
+        {/* Companion Book Banner */}
+        <div className="mt-16 max-w-4xl mx-auto p-6 sm:p-8 rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] flex flex-col sm:flex-row items-center gap-6 sm:gap-8 shadow-xs">
+          <div className="shrink-0 flex justify-center">
+            <Link to="/book" className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] rounded-md transition-transform hover:scale-[1.02]">
+              <BookCover size="sm" show3D={true} />
+            </Link>
+          </div>
+          <div className="space-y-3 text-center sm:text-left">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+              <span className="text-[11px] uppercase tracking-wider text-[#C62828] font-bold">
+                Companion Reading
+              </span>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-black text-white font-semibold">
+                {siteConfig.book.pillarsStatement}
+              </span>
+            </div>
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#111111]">
+              Explore Anagha's Memoir: {siteConfig.book.title}
+            </h3>
+            <p className="font-serif italic text-xs sm:text-sm text-[#C62828] font-medium">
+              "{siteConfig.book.subtitle}"
+            </p>
+            <p className="text-xs sm:text-sm text-[#555555] leading-relaxed">
+              Before or alongside your coaching journey, immerse yourself in reflections on self-discovery, reinvention, and reconnecting with your inner compass.
+            </p>
+            <div className="pt-1">
+              <Link
+                to="/book"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#111111] hover:text-[#C62828] transition-colors"
+              >
+                <BookOpen className="w-4 h-4 text-[#C62828]" />
+                <span>Learn More About the Book</span>
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Help Me Choose Feature */}

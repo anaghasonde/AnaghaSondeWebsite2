@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { RedLine, BrandBadge } from '../components/GoldMotif';
+import { BookCover } from '../components/BookCover';
 
 export const MindMattersPage: React.FC = () => {
   return (
@@ -78,22 +79,28 @@ export const MindMattersPage: React.FC = () => {
 
         {/* Connection to Anagha's Book */}
         <div className="mt-16 max-w-4xl mx-auto p-8 rounded-2xl bg-[#F5F5F5] border-2 border-[#111111] flex flex-col md:flex-row items-center gap-8 shadow-xs">
-          <div className="w-32 shrink-0">
-            <img
-              src={siteConfig.book.coverImage}
-              alt="Welcome Back to Yourself by Anagha Sonde"
-              className="w-full h-auto rounded-lg shadow-md border border-[#E5E5E5]"
-            />
+          <div className="shrink-0 flex justify-center">
+            <Link to="/book" className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] rounded-md transition-transform hover:scale-[1.02]">
+              <BookCover size="sm" show3D={true} />
+            </Link>
           </div>
           <div className="space-y-3 text-center md:text-left">
-            <span className="text-[11px] uppercase tracking-wider text-[#C62828] font-bold">
-              The Companion Book
-            </span>
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+              <span className="text-[11px] uppercase tracking-wider text-[#C62828] font-bold">
+                The Companion Memoir
+              </span>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-black text-white font-semibold">
+                {siteConfig.book.pillarsStatement}
+              </span>
+            </div>
             <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#111111]">
-              Welcome Back to Yourself
+              {siteConfig.book.title}
             </h3>
+            <p className="font-serif italic text-xs sm:text-sm text-[#C62828] font-medium">
+              "{siteConfig.book.subtitle}"
+            </p>
             <p className="text-xs sm:text-sm text-[#555555] leading-relaxed">
-              Written by Anagha Sonde, this memoir shares personal experiences and reflections on reinvention, self-discovery, and finding the courage to begin again.
+              Written by {siteConfig.book.author}, this memoir shares personal experiences and reflections on reinvention, self-discovery, and finding the courage to begin again.
             </p>
             <div className="pt-2">
               <Link

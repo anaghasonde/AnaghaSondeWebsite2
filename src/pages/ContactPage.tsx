@@ -90,6 +90,26 @@ export const ContactPage: React.FC = () => {
               </Link>
             </div>
 
+            {/* Book Copy Enquiry Teaser */}
+            <div className="p-4 rounded-xl bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-between text-xs shadow-2xs">
+              <div className="flex items-center gap-3">
+                <div className="w-10 shrink-0">
+                  <img
+                    src={siteConfig.book.coverImage}
+                    alt="Welcome Back to Yourself cover"
+                    className="w-full aspect-[5/8] object-contain rounded-xs shadow-xs"
+                  />
+                </div>
+                <div>
+                  <p className="font-bold text-[#111111]">Looking for the book?</p>
+                  <p className="text-[11px] text-[#666666]">Enquire for an author copy of <em>Welcome Back to Yourself</em></p>
+                </div>
+              </div>
+              <Link to="/book#get-copy" className="text-[#C62828] font-bold hover:underline shrink-0 text-xs ml-2">
+                Order &rarr;
+              </Link>
+            </div>
+
             {/* Privacy Promise */}
             <div className="p-4 rounded-xl bg-red-50/50 border border-red-200 text-xs text-[#444444] flex items-start gap-2.5">
               <ShieldCheck className="w-4 h-4 text-[#C62828] shrink-0 mt-0.5" />

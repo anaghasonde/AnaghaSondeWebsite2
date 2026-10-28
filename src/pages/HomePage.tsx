@@ -4,6 +4,7 @@ import { Calendar, ArrowRight, ShieldCheck, BookOpen } from 'lucide-react';
 
 import { siteConfig } from '../config/siteConfig';
 import { RedLine, BrandBadge } from '../components/GoldMotif';
+import { BookCover } from '../components/BookCover';
 import { ServiceCard } from '../components/ServiceCard';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FaqAccordion } from '../components/FaqAccordion';
@@ -252,37 +253,31 @@ export const HomePage: React.FC = () => {
             
             {/* Book Cover Presentation */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative group max-w-xs sm:max-w-sm w-full">
-                <div className="absolute -inset-3 bg-red-100/50 rounded-xl blur-md -rotate-1 transition-all group-hover:rotate-0" />
-                
-                <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-[#111111] bg-white p-2">
-                  <img
-                    src={siteConfig.book.coverImage}
-                    alt="Welcome Back to Yourself by Anagha Sonde - Book Cover"
-                    className="w-full h-auto object-contain rounded transition-transform duration-500 group-hover:scale-[1.01]"
-                  />
-                </div>
-
-                <div className="mt-3 text-center">
-                  <span className="text-[11px] uppercase tracking-wider text-[#111111] bg-white px-3 py-1 rounded-full border border-[#E5E5E5] font-semibold">
-                    Official Memoir Cover
-                  </span>
-                </div>
-              </div>
+              <Link to="/book" className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] rounded-md transition-transform hover:scale-[1.01]">
+                <BookCover size="lg" badge="Official Memoir Cover" />
+              </Link>
             </div>
 
             {/* Book Details, Description, and CTAs */}
             <div className="lg:col-span-7 space-y-6">
               
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-[#C62828]">
-                  Memoir by Anagha Sonde
-                </p>
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#C62828]">
+                    Official Memoir by Anagha Sonde
+                  </span>
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-black text-white font-semibold">
+                    {siteConfig.book.pillarsStatement}
+                  </span>
+                </div>
                 <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111111] mt-1">
                   {siteConfig.book.title}
                 </h3>
-                <p className="font-serif italic text-base sm:text-lg text-[#555555] mt-1.5">
-                  "{siteConfig.book.tagline}"
+                <p className="font-serif italic text-base sm:text-lg text-[#C62828] font-semibold mt-1">
+                  "{siteConfig.book.subtitle}"
+                </p>
+                <p className="text-xs text-[#666666] mt-1">
+                  {siteConfig.book.tagline}
                 </p>
               </div>
 

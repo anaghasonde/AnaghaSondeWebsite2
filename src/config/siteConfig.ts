@@ -108,9 +108,14 @@ export const siteConfig = {
   book: {
     title: "Welcome Back to Yourself",
     author: "Anagha Sonde",
+    subtitle: "A journey inward — to heal, rediscover, and become yourself again.",
     tagline: "Sometimes, the most meaningful journey is the one that brings you back to who you are.",
-    coverImage: "/assets/book-cover.svg",
-    officialCoverPlaceholder: true, // replace with /assets/book-cover.jpg once supplied
+    coverImage: "/assets/book-cover.jpg",
+    officialCoverPlaceholder: false,
+    bannerTop: "Logic to Purpose | Healing minds | Empowering lives",
+    pillarsStatement: "Heal | Grow | Build | Become | Unstoppable",
+    pillars: ["Heal", "Grow", "Build", "Become", "Unstoppable"],
+    callout: "Reclaim your essence. Rediscover your strength. Create your new path.",
     genre: "Personal Memoir / Self-Discovery",
     synopsis: [
       "What happens when life takes you away from yourself?",

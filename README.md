@@ -53,8 +53,8 @@ The website features a bold, sophisticated, confident, and modern **Red, Black, 
   5. *Confirmation & Calendar Invite:* Instant booking reference code (`MM-2026-XXXX`), clear status message, and direct one-click **Add to Calendar (.ics)** download.
 - **Words That Matter (Testimonials Section):**
   Dedicated section on the homepage highlighting three core coaching themes (*Feeling Heard*, *Clarity and Self-Discovery*, and *Confidence and Moving Forward*), clearly labeled as development placeholders until client-approved reviews are published.
-- **Author of "Welcome Back to Yourself" Section:**
-  Editorial two-column book presentation with cover graphic, book synopsis, key themes, copy request form, and bridge connecting the memoir to Mind Matters.
+- **Official "Welcome Back to Yourself" Memoir Showcase:**
+  Realistic 3D book presentation with spine depth, subtle hinge creases, and page edge layers (implemented via `<BookCover />`). Features the official cover artwork (`/assets/book-cover.jpg`) across the Homepage, My Book page, About Anagha page, Mind Matters page, Services page, and Life Coaching page with exact 5:8 aspect ratio preservation.
 - **Ethical Integrity & Boundary Disclaimers:**
   Clear distinctions throughout emphasizing that life coaching is forward-focused and reflective, and not a substitute for clinical psychotherapy, psychiatric care, or emergency support.
 - **Accessible & Responsive:**

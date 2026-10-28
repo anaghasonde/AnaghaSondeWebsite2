@@ -4,6 +4,7 @@ import { Calendar, BookOpen, ShieldCheck, ArrowRight } from 'lucide-react';
 
 import { siteConfig } from '../config/siteConfig';
 import { RedLine, BrandBadge } from '../components/GoldMotif';
+import { BookCover } from '../components/BookCover';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -117,15 +118,39 @@ export const AboutPage: React.FC = () => {
                 Writing has always been an integral way for me to process life's transitions. In my personal memoir, <em>"Welcome Back to Yourself,"</em> I explore the quiet moments when expectations pull us away from who we are, and the courage it takes to return to our own values and voice.
               </p>
 
-              <div className="flex items-center gap-4 pt-2">
-                <Link
-                  to="/book"
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#111111] hover:text-[#C62828] transition-colors"
-                >
-                  <BookOpen className="w-4 h-4 text-[#C62828]" />
-                  <span>Explore the Book</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#C62828]" />
-                </Link>
+              {/* Book Feature Card */}
+              <div className="p-5 rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] flex flex-col sm:flex-row items-center gap-6 shadow-xs mt-4">
+                <div className="shrink-0 flex justify-center">
+                  <Link to="/book" className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] rounded-md transition-transform hover:scale-[1.02]">
+                    <BookCover size="sm" show3D={true} />
+                  </Link>
+                </div>
+                <div className="space-y-2 text-center sm:text-left">
+                  <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#C62828]">
+                      Official Memoir
+                    </span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-black text-white font-semibold">
+                      {siteConfig.book.pillarsStatement}
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#111111]">
+                    {siteConfig.book.title}
+                  </h3>
+                  <p className="font-serif italic text-xs sm:text-sm text-[#C62828] font-medium">
+                    "{siteConfig.book.subtitle}"
+                  </p>
+                  <div className="pt-1">
+                    <Link
+                      to="/book"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#111111] hover:text-[#C62828] transition-colors"
+                    >
+                      <BookOpen className="w-3.5 h-3.5 text-[#C62828]" />
+                      <span>Explore the Book</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#C62828]" />
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
 
