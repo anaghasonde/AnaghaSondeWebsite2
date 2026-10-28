@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Mail, Phone, User, MessageSquare, Send, CheckCircle2 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -47,16 +46,16 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg border border-[#E8D8C6] shadow-sm p-6 sm:p-8">
+    <div className="bg-white rounded-xl border border-[#E5E5E5] shadow-sm p-6 sm:p-8">
       {isSubmitted ? (
         <div className="text-center py-8 space-y-4">
-          <div className="w-14 h-14 rounded-full bg-[#E8D8C6]/50 border-2 border-[#B49A6A] flex items-center justify-center mx-auto text-[#B49A6A]">
+          <div className="w-14 h-14 rounded-full bg-red-50 border-2 border-[#C62828] flex items-center justify-center mx-auto text-[#C62828]">
             <CheckCircle2 className="w-8 h-8" />
           </div>
-          <h3 className="font-serif text-2xl font-bold text-[#171615]">
+          <h3 className="font-serif text-2xl font-bold text-[#111111]">
             Message Received
           </h3>
-          <p className="text-sm text-[#706B65] max-w-md mx-auto">
+          <p className="text-sm text-[#555555] max-w-md mx-auto">
             Thank you, {formData.name}. Your enquiry has been received with discretion. Anagha will be in touch with you shortly via your preferred contact method.
           </p>
           <div className="pt-4">
@@ -75,7 +74,7 @@ export const ContactForm: React.FC = () => {
                   privacyConsent: false,
                 });
               }}
-              className="px-5 py-2 text-xs font-semibold uppercase tracking-wider text-[#171615] bg-[#E8D8C6]/60 hover:bg-[#E8D8C6] rounded transition-colors"
+              className="px-5 py-2 text-xs font-bold uppercase tracking-wider text-[#111111] bg-[#F5F5F5] hover:bg-[#E5E5E5] rounded transition-colors"
             >
               Send Another Enquiry
             </button>
@@ -84,10 +83,10 @@ export const ContactForm: React.FC = () => {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
           <div>
-            <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#171615]">
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#111111]">
               Let's begin with a conversation.
             </h3>
-            <p className="text-sm text-[#706B65] mt-1">
+            <p className="text-sm text-[#555555] mt-1">
               You don't have to have everything figured out before reaching out. Tell me a little about what brings you here, and we can explore whether coaching feels right for you.
             </p>
           </div>
@@ -96,18 +95,18 @@ export const ContactForm: React.FC = () => {
             
             {/* Name */}
             <div>
-              <label htmlFor="contact-name" className="block text-xs font-semibold text-[#171615] mb-1">
-                Your Name <span className="text-red-500">*</span>
+              <label htmlFor="contact-name" className="block text-xs font-bold text-[#111111] mb-1">
+                Your Name <span className="text-[#C62828]">*</span>
               </label>
               <div className="relative">
-                <User className="w-4 h-4 absolute left-3 top-3 text-[#706B65]" />
+                <User className="w-4 h-4 absolute left-3 top-3 text-[#777777]" />
                 <input
                   id="contact-name"
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Full name"
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
                 />
               </div>
               {errors.name && <p className="text-xs text-red-600 mt-1">{errors.name}</p>}
@@ -115,18 +114,18 @@ export const ContactForm: React.FC = () => {
 
             {/* Email */}
             <div>
-              <label htmlFor="contact-email" className="block text-xs font-semibold text-[#171615] mb-1">
-                Email Address <span className="text-red-500">*</span>
+              <label htmlFor="contact-email" className="block text-xs font-bold text-[#111111] mb-1">
+                Email Address <span className="text-[#C62828]">*</span>
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 absolute left-3 top-3 text-[#706B65]" />
+                <Mail className="w-4 h-4 absolute left-3 top-3 text-[#777777]" />
                 <input
                   id="contact-email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="name@example.com"
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
                 />
               </div>
               {errors.email && <p className="text-xs text-red-600 mt-1">{errors.email}</p>}
@@ -134,32 +133,32 @@ export const ContactForm: React.FC = () => {
 
             {/* Phone (Optional) */}
             <div>
-              <label htmlFor="contact-phone" className="block text-xs font-semibold text-[#171615] mb-1">
-                Phone Number <span className="text-xs text-[#706B65] font-normal">(Optional)</span>
+              <label htmlFor="contact-phone" className="block text-xs font-bold text-[#111111] mb-1">
+                Phone Number <span className="text-xs text-[#777777] font-normal">(Optional)</span>
               </label>
               <div className="relative">
-                <Phone className="w-4 h-4 absolute left-3 top-3 text-[#706B65]" />
+                <Phone className="w-4 h-4 absolute left-3 top-3 text-[#777777]" />
                 <input
                   id="contact-phone"
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="+91..."
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                  className="w-full pl-9 pr-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
                 />
               </div>
             </div>
 
             {/* Preferred Contact Method */}
             <div>
-              <label htmlFor="contact-method" className="block text-xs font-semibold text-[#171615] mb-1">
+              <label htmlFor="contact-method" className="block text-xs font-bold text-[#111111] mb-1">
                 Preferred Reply Method
               </label>
               <select
                 id="contact-method"
                 value={formData.contactMethod}
                 onChange={(e) => setFormData({ ...formData, contactMethod: e.target.value })}
-                className="w-full px-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                className="w-full px-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
               >
                 <option value="email">Email</option>
                 <option value="whatsapp">WhatsApp / Text</option>
@@ -169,14 +168,14 @@ export const ContactForm: React.FC = () => {
 
             {/* Coaching Focus */}
             <div>
-              <label htmlFor="contact-service" className="block text-xs font-semibold text-[#171615] mb-1">
+              <label htmlFor="contact-service" className="block text-xs font-bold text-[#111111] mb-1">
                 Preferred Coaching Service
               </label>
               <select
                 id="contact-service"
                 value={formData.service}
                 onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                className="w-full px-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                className="w-full px-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
               >
                 {siteConfig.services.map((s) => (
                   <option key={s.id} value={s.id}>
@@ -190,14 +189,14 @@ export const ContactForm: React.FC = () => {
 
             {/* Preferred Session Format */}
             <div>
-              <label htmlFor="contact-format" className="block text-xs font-semibold text-[#171615] mb-1">
+              <label htmlFor="contact-format" className="block text-xs font-bold text-[#111111] mb-1">
                 Preferred Session Format
               </label>
               <select
                 id="contact-format"
                 value={formData.format}
                 onChange={(e) => setFormData({ ...formData, format: e.target.value })}
-                className="w-full px-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                className="w-full px-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
               >
                 <option value="online">Online Video Session (Worldwide)</option>
                 <option value="in-person">In-Person Session (Bengaluru, subject to availability)</option>
@@ -207,18 +206,18 @@ export const ContactForm: React.FC = () => {
 
           {/* Short Optional Message */}
           <div>
-            <label htmlFor="contact-message" className="block text-xs font-semibold text-[#171615] mb-1">
-              Short Message <span className="text-xs text-[#706B65] font-normal">(Optional — a brief note on what brings you here)</span>
+            <label htmlFor="contact-message" className="block text-xs font-bold text-[#111111] mb-1">
+              Short Message <span className="text-xs text-[#777777] font-normal">(Optional — a brief note on what brings you here)</span>
             </label>
             <div className="relative">
-              <MessageSquare className="w-4 h-4 absolute left-3 top-3 text-[#706B65]" />
+              <MessageSquare className="w-4 h-4 absolute left-3 top-3 text-[#777777]" />
               <textarea
                 id="contact-message"
                 rows={4}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Feel free to share what you hope to gain from coaching. We encourage keeping sensitive personal details for the one-to-one conversation."
-                className="w-full pl-9 pr-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                className="w-full pl-9 pr-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
               />
             </div>
           </div>
@@ -230,11 +229,11 @@ export const ContactForm: React.FC = () => {
                 type="checkbox"
                 checked={formData.privacyConsent}
                 onChange={(e) => setFormData({ ...formData, privacyConsent: e.target.checked })}
-                className="mt-1 rounded text-[#B49A6A] focus:ring-[#B49A6A] border-[#E8D8C6]"
+                className="mt-1 rounded text-[#C62828] focus:ring-[#C62828] border-[#CCCCCC]"
               />
-              <span className="text-xs text-[#706B65] leading-relaxed">
+              <span className="text-xs text-[#555555] leading-relaxed">
                 I acknowledge the{' '}
-                <a href="/privacy" target="_blank" className="text-[#171615] underline hover:text-[#B49A6A]">
+                <a href="/privacy" target="_blank" className="text-[#111111] font-bold underline hover:text-[#C62828]">
                   Privacy Policy
                 </a>{' '}
                 and understand that life coaching is a reflective developmental process, not clinical psychotherapy or emergency crisis care.
@@ -249,7 +248,7 @@ export const ContactForm: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex items-center gap-2 px-7 py-3 bg-[#171615] hover:bg-[#B49A6A] text-white text-sm font-semibold rounded-sm transition-all shadow-sm hover:shadow"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-bold rounded-sm transition-all shadow-sm hover:shadow"
             >
               {isSubmitting ? (
                 <>
@@ -258,7 +257,7 @@ export const ContactForm: React.FC = () => {
                 </>
               ) : (
                 <>
-                  <Send className="w-4 h-4 text-[#B49A6A]" />
+                  <Send className="w-4 h-4 text-white" />
                   <span>Send Confidential Enquiry</span>
                 </>
               )}

@@ -8,18 +8,18 @@ A custom, responsive, production-ready website for **Mind Matters by Anagha Sond
 
 ---
 
-## 1. Visual Identity & Design System
+## 1. Visual Identity & Design System (Red, Black, and White)
 
-The visual design is directly inspired by Anagha Sonde's official portrait — featuring a charcoal black background, champagne/beige attire, intricate black and antique gold embroidery, and natural skin tones.
+The website features a bold, sophisticated, confident, and modern **Red, Black, and White** color theme complementing Anagha Sonde's official founder portrait.
 
 ### Color Palette
-- **Warm Ivory (`#F8F5EF`):** Primary light background.
-- **Champagne Beige (`#E8D8C6`):** Secondary cards, warm borders, and soft highlights.
-- **Charcoal Black (`#171615`):** Headings, dark contrast sections, and sophisticated footer.
-- **Antique Gold (`#B49A6A`):** Buttons, decorative lines, badges, and focus accents.
-- **Dusty Rose (`#B9797D`):** Restrained accent for notices and touches of warmth.
-- **Soft White (`#FFFFFF`):** High-contrast cards and light text on dark backgrounds.
-- **Warm Grey (`#706B65`):** Calm, readable secondary body typography.
+- **Primary Red (`#C62828`):** Primary buttons, important highlights, links, and calls to action.
+- **Deep Red (`#8E1515`):** Hover states, darker accents, and active focus emphasis.
+- **Black (`#111111`):** Headings, dark contrast sections, and sophisticated footer.
+- **White (`#FFFFFF`):** Primary light backgrounds, cards, and text on dark sections.
+- **Light Grey (`#F5F5F5`):** Alternate section backgrounds, cards, and subtle separators.
+- **Dark Grey (`#333333` / `#444444`):** Calm, readable secondary body typography.
+- **Border Grey (`#E5E5E5`):** Minimalist dividers and card outlines.
 
 ### Typography
 - **Headlines:** `Playfair Display` & `Cormorant Garamond` (Editorial serif)
@@ -31,7 +31,7 @@ The visual design is directly inspired by Anagha Sonde's official portrait — f
 
 | Route | Page | Purpose & Content |
 |---|---|---|
-| `/` | **Home** | Hero section with founder portrait & tagline, What Is Life Coaching, About intro, "Welcome Back to Yourself" author feature, 6 service cards, Coaching Philosophy in Charcoal, 4-step session journey, Mind Matters themes, 9-item FAQ accordion, and interactive appointment booking. |
+| `/` | **Home** | Hero section with updated founder portrait & tagline, What Is Life Coaching, About intro, "Welcome Back to Yourself" author feature, 6 service cards, Coaching Philosophy in Black, 4-step session journey, **Words That Matter (Testimonials)**, Mind Matters themes, 9-item FAQ accordion, and interactive appointment booking. |
 | `/about` | **About Anagha** | Detailed personal story, Achology 2020 certification, founding of Mind Matters in 2022, verification note on ~150 clients, and philosophy of listening before advising. |
 | `/life-coaching` | **What is Life Coaching?** | Deep-dive educational guide, the 4 principles (Self-awareness, Clarity, Confidence, Meaningful action), and a transparent coaching vs. therapy comparison. |
 | `/services` | **My Services** | All 6 life coaching services detailed with ideal-client scenarios, session length, and pricing breakdown. |
@@ -51,8 +51,10 @@ The visual design is directly inspired by Anagha Sonde's official portrait — f
   3. *Client Details:* Full name, email, optional phone, optional short message, and privacy acknowledgment.
   4. *Review & Summary:* Transparent breakdown before final submission.
   5. *Confirmation & Calendar Invite:* Instant booking reference code (`MM-2026-XXXX`), clear status message, and direct one-click **Add to Calendar (.ics)** download.
+- **Words That Matter (Testimonials Section):**
+  Dedicated section on the homepage highlighting three core coaching themes (*Feeling Heard*, *Clarity and Self-Discovery*, and *Confidence and Moving Forward*), clearly labeled as development placeholders until client-approved reviews are published.
 - **Author of "Welcome Back to Yourself" Section:**
-  Editorial two-column book presentation with cover placeholder/graphic, book synopsis, key themes, copy request form, and bridge connecting the memoir to Mind Matters.
+  Editorial two-column book presentation with cover graphic, book synopsis, key themes, copy request form, and bridge connecting the memoir to Mind Matters.
 - **Ethical Integrity & Boundary Disclaimers:**
   Clear distinctions throughout emphasizing that life coaching is forward-focused and reflective, and not a substitute for clinical psychotherapy, psychiatric care, or emergency support.
 - **Accessible & Responsive:**
@@ -89,23 +91,35 @@ npm run preview
 
 ## 5. Centralized Configuration Guide
 
-All business details, fees, session durations, social media handles, and service copy are centrally managed in a single file:
+All business details, fees, session durations, social media handles, and testimonials are centrally managed in a single file:
 
 ```
 src/config/siteConfig.ts
 ```
 
+### Updating Testimonials
+Open `src/config/siteConfig.ts` under `testimonialsSection.items`:
+```typescript
+{
+  id: "testimonial-1",
+  theme: "Feeling Heard",
+  quote: "Verified quote from client...",
+  attribution: "Ananya S., Bengaluru",
+  context: "One-to-One Coaching",
+  isPlaceholder: false,
+}
+```
+
 ### Updating Business & Contact Information
-Open `src/config/siteConfig.ts`:
 ```typescript
 contact: {
-  email: "your-verified-email@mindmattersbyanagha.com",
-  phone: "+91 98765 43210",
+  email: "contact@mindmattersbyanagha.com",
+  phone: "+91 ...",
   city: "Bengaluru",
   timezone: "Asia/Kolkata (IST)",
   social: {
-    instagram: "https://instagram.com/your-handle",
-    linkedin: "https://linkedin.com/in/your-profile",
+    instagram: "https://instagram.com/...",
+    linkedin: "https://linkedin.com/in/...",
   }
 }
 ```
@@ -120,28 +134,9 @@ sessionDetails: {
 }
 ```
 
-### Replacing Images
-- **Founder Portrait:** Replace `public/assets/anagha-sonde.jpg` with any new high-resolution photo.
-- **Book Cover:** Replace `public/assets/book-cover.svg` with `public/assets/book-cover.jpg` once the official retail cover art is finalized, and update `coverImage` in `src/config/siteConfig.ts`.
-
 ---
 
-## 6. Connecting External Scheduling (Calendly / Cal.com / Google Calendar)
-
-If you prefer using an external booking service like Calendly or Cal.com:
-1. Open `src/config/siteConfig.ts`.
-2. Update `integrations`:
-   ```typescript
-   integrations: {
-     isBackendConfigured: true,
-     bookingProvider: "cal.com", // or "calendly"
-     externalBookingUrl: "https://cal.com/anagha-sonde/60min",
-   }
-   ```
-
----
-
-## 7. Deployment Instructions
+## 6. Deployment Instructions
 
 ### Deploy to Vercel
 1. Push this repository to GitHub / GitLab.
@@ -154,15 +149,15 @@ If you prefer using an external booking service like Calendly or Cal.com:
 1. Connect your repository to Netlify.
 2. Build command: `npm run build`.
 3. Publish directory: `dist`.
-4. Add a `_redirects` file in `public/` containing `/* /index.html 200` for client-side routing.
+4. Preconfigured [`public/_redirects`](file:///d:/Anagha%20Sonde/Website/Website2/Ana-Website-2/public/_redirects) handles client-side routing automatically.
 
 ---
 
-## 8. Verification Checklist Before Going Live
+## 7. Verification Checklist Before Going Live
 
 - [ ] Confirm the exact session fee (currently set to `₹1,000`, subject to founder verification).
 - [ ] Confirm official business email and telephone number.
 - [ ] Verify social media profile URLs (LinkedIn, Instagram).
 - [ ] Verify client count claim (~150 clients supported) prior to public marketing.
+- [ ] Replace placeholder testimonials in `src/config/siteConfig.ts` with approved client reviews.
 - [ ] Supply official high-res cover art for *"Welcome Back to Yourself"*.
-- [ ] Configure live mail server (e.g., SendGrid, Resend, or EmailJS) if automated confirmation emails are desired upon booking.

@@ -52,8 +52,8 @@ export const Navbar: React.FC = () => {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#F8F5EF]/95 backdrop-blur-md shadow-sm border-b border-[#E8D8C6]/60 py-3.5'
-          : 'bg-[#F8F5EF] border-b border-[#E8D8C6]/40 py-4.5'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E5E5E5] py-3.5'
+          : 'bg-white border-b border-[#E5E5E5]/70 py-4.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,13 +62,13 @@ export const Navbar: React.FC = () => {
           {/* Brand Logo & Tagline */}
           <Link
             to="/"
-            className="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B49A6A] rounded-sm transition-transform duration-200"
+            className="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] rounded-sm transition-transform duration-200"
             aria-label={`${siteConfig.brand.name} - Home`}
           >
-            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#171615] group-hover:text-[#B49A6A] transition-colors">
+            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#111111] group-hover:text-[#C62828] transition-colors">
               Mind Matters
             </span>
-            <span className="text-[11px] uppercase tracking-widest text-[#706B65] font-medium -mt-0.5">
+            <span className="text-[11px] uppercase tracking-widest text-[#666666] font-medium -mt-0.5 group-hover:text-[#333333] transition-colors">
               by Anagha Sonde
             </span>
           </Link>
@@ -83,33 +83,33 @@ export const Navbar: React.FC = () => {
                   to={link.path}
                   className={`relative px-3 py-1.5 text-sm font-medium tracking-wide transition-colors rounded-md ${
                     active
-                      ? 'text-[#171615] font-semibold'
-                      : 'text-[#706B65] hover:text-[#171615]'
-                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B49A6A]`}
+                      ? 'text-[#111111] font-bold'
+                      : 'text-[#555555] hover:text-[#C62828]'
+                  } focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]`}
                 >
                   <span className="flex items-center gap-1.5">
                     {link.name}
                     {link.badge && (
-                      <span className="text-[10px] bg-[#B49A6A]/15 text-[#8F7446] font-semibold px-1.5 py-0.2 rounded-full border border-[#B49A6A]/30">
+                      <span className="text-[10px] bg-red-50 text-[#C62828] font-bold px-1.5 py-0.2 rounded-full border border-red-200">
                         {link.badge}
                       </span>
                     )}
                   </span>
                   {active && (
-                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#B49A6A] rounded-full" />
+                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#C62828] rounded-full" />
                   )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Action Button: Book an Appointment */}
+          {/* Action Button: Book an Appointment (Primary Red) */}
           <div className="hidden md:flex items-center space-x-3">
             <Link
               to="/book-session"
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium tracking-wide text-white bg-[#171615] hover:bg-[#B49A6A] transition-all duration-300 rounded-sm shadow-sm hover:shadow group border border-[#171615] hover:border-[#B49A6A] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#B49A6A]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold tracking-wide text-white bg-[#C62828] hover:bg-[#8E1515] transition-all duration-300 rounded-sm shadow-sm hover:shadow group border border-[#C62828] hover:border-[#8E1515] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#C62828]"
             >
-              <Calendar className="w-4 h-4 text-[#B49A6A] group-hover:text-white transition-colors" />
+              <Calendar className="w-4 h-4 text-white" />
               <span>Book an Appointment</span>
             </Link>
           </div>
@@ -118,14 +118,14 @@ export const Navbar: React.FC = () => {
           <div className="flex md:hidden items-center space-x-2">
             <Link
               to="/book-session"
-              className="px-3 py-1.5 text-xs font-medium text-white bg-[#171615] rounded-sm hover:bg-[#B49A6A] transition-colors"
+              className="px-3 py-1.5 text-xs font-semibold text-white bg-[#C62828] rounded-sm hover:bg-[#8E1515] transition-colors"
             >
               Book
             </Link>
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-[#171615] hover:text-[#B49A6A] hover:bg-[#E8D8C6]/40 focus:outline-none focus:ring-2 focus:ring-[#B49A6A]"
+              className="p-2 rounded-md text-[#111111] hover:text-[#C62828] hover:bg-[#F5F5F5] focus:outline-none focus:ring-2 focus:ring-[#C62828]"
               aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isOpen}
             >
@@ -140,14 +140,14 @@ export const Navbar: React.FC = () => {
         <div className="fixed inset-0 top-[65px] z-50 lg:hidden">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity"
+            className="fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity"
             onClick={() => setIsOpen(false)}
           />
 
           {/* Panel */}
-          <div className="relative bg-[#F8F5EF] border-b border-[#E8D8C6] shadow-xl px-6 pt-5 pb-8 space-y-4 max-h-[calc(100vh-65px)] overflow-y-auto">
-            <div className="pb-3 border-b border-[#E8D8C6]">
-              <p className="font-serif italic text-sm text-[#706B65]">"{siteConfig.brand.tagline}"</p>
+          <div className="relative bg-white border-b border-[#E5E5E5] shadow-xl px-6 pt-5 pb-8 space-y-4 max-h-[calc(100vh-65px)] overflow-y-auto">
+            <div className="pb-3 border-b border-[#E5E5E5]">
+              <p className="font-serif italic text-sm text-[#C62828] font-medium">"{siteConfig.brand.tagline}"</p>
             </div>
 
             <nav className="flex flex-col space-y-2">
@@ -160,13 +160,13 @@ export const Navbar: React.FC = () => {
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center justify-between px-3 py-2.5 rounded-md text-base font-medium transition-colors ${
                       active
-                        ? 'bg-[#E8D8C6]/60 text-[#171615] font-semibold border-l-4 border-[#B49A6A]'
-                        : 'text-[#706B65] hover:bg-[#E8D8C6]/30 hover:text-[#171615]'
+                        ? 'bg-red-50 text-[#C62828] font-bold border-l-4 border-[#C62828]'
+                        : 'text-[#333333] hover:bg-[#F5F5F5] hover:text-[#C62828]'
                     }`}
                   >
                     <span>{link.name}</span>
                     {link.badge && (
-                      <span className="text-[10px] bg-[#B49A6A]/20 text-[#8F7446] font-semibold px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] bg-red-100 text-[#C62828] font-bold px-2 py-0.5 rounded-full">
                         {link.badge}
                       </span>
                     )}
@@ -175,22 +175,22 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            <div className="pt-4 border-t border-[#E8D8C6] space-y-3">
+            <div className="pt-4 border-t border-[#E5E5E5] space-y-3">
               <Link
                 to="/book-session"
                 onClick={() => setIsOpen(false)}
-                className="w-full flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium text-white bg-[#171615] hover:bg-[#B49A6A] rounded-sm transition-colors text-center"
+                className="w-full flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-[#C62828] hover:bg-[#8E1515] rounded-sm transition-colors text-center shadow-xs"
               >
-                <Calendar className="w-4 h-4 text-[#B49A6A]" />
+                <Calendar className="w-4 h-4 text-white" />
                 Book an Appointment
               </Link>
               
               <Link
                 to="/book"
                 onClick={() => setIsOpen(false)}
-                className="w-full flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-[#171615] bg-[#E8D8C6]/50 hover:bg-[#E8D8C6] border border-[#B49A6A]/30 rounded-sm transition-colors text-center"
+                className="w-full flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-[#111111] bg-[#F5F5F5] hover:bg-[#E5E5E5] border border-[#E5E5E5] rounded-sm transition-colors text-center"
               >
-                <BookOpen className="w-4 h-4 text-[#B49A6A]" />
+                <BookOpen className="w-4 h-4 text-[#C62828]" />
                 Discover "Welcome Back to Yourself"
               </Link>
             </div>

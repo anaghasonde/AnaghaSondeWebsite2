@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Mail, MapPin, Clock, ArrowUp, ShieldCheck, Heart } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -12,7 +11,7 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#171615] text-[#F8F5EF] pt-16 pb-12 border-t border-[#B49A6A]/30">
+    <footer className="bg-[#111111] text-white pt-16 pb-12 border-t-2 border-[#C62828]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Section */}
@@ -21,29 +20,29 @@ export const Footer: React.FC = () => {
           {/* Brand & Tagline - Column 1 */}
           <div className="lg:col-span-5 space-y-4">
             <Link to="/" className="inline-block group">
-              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-[#B49A6A] transition-colors">
+              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-[#C62828] transition-colors">
                 Mind Matters
               </span>
-              <span className="block text-xs uppercase tracking-widest text-[#B49A6A] font-medium mt-1">
+              <span className="block text-xs uppercase tracking-widest text-[#C62828] font-bold mt-1">
                 by Anagha Sonde
               </span>
             </Link>
 
-            <p className="font-serif italic text-lg text-[#E8D8C6]/90">
+            <p className="font-serif italic text-xl text-white font-medium">
               "{siteConfig.brand.tagline}"
             </p>
 
-            <p className="text-sm text-[#948E87] leading-relaxed max-w-md">
+            <p className="text-sm text-[#A0A0A0] leading-relaxed max-w-md">
               Helping you pause, reflect, reconnect, and move forward with greater clarity. A confidential, reflective space for honest conversations and intentional living.
             </p>
 
-            <div className="pt-2 flex items-center space-x-3 text-xs text-[#E8D8C6]/70">
+            <div className="pt-2 flex items-center space-x-3 text-xs text-[#CCCCCC]">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/5 border border-white/10">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#B49A6A]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C62828]" />
                 Founded 2022
               </span>
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/5 border border-white/10">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#B49A6A]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#C62828]" />
                 Achology Certified (2020)
               </span>
             </div>
@@ -51,43 +50,43 @@ export const Footer: React.FC = () => {
 
           {/* Quick Navigation - Column 2 */}
           <div className="lg:col-span-3 space-y-4">
-            <h3 className="font-serif text-base font-semibold text-white tracking-wide border-b border-[#B49A6A]/40 pb-2">
+            <h3 className="font-serif text-base font-bold text-white tracking-wide border-b border-[#C62828]/60 pb-2">
               Explore
             </h3>
-            <ul className="space-y-2.5 text-sm text-[#C4BEB6]">
+            <ul className="space-y-2.5 text-sm text-[#CCCCCC]">
               <li>
-                <Link to="/" className="hover:text-[#B49A6A] transition-colors flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#B49A6A]" /> Home
+                <Link to="/" className="hover:text-[#C62828] transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C62828]" /> Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-[#B49A6A] transition-colors flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#B49A6A]" /> About Anagha
+                <Link to="/about" className="hover:text-[#C62828] transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C62828]" /> About Anagha
                 </Link>
               </li>
               <li>
-                <Link to="/life-coaching" className="hover:text-[#B49A6A] transition-colors flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#B49A6A]" /> What Is Life Coaching?
+                <Link to="/life-coaching" className="hover:text-[#C62828] transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C62828]" /> What Is Life Coaching?
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-[#B49A6A] transition-colors flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#B49A6A]" /> Coaching Services
+                <Link to="/services" className="hover:text-[#C62828] transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C62828]" /> Coaching Services
                 </Link>
               </li>
               <li>
-                <Link to="/mind-matters" className="hover:text-[#B49A6A] transition-colors flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#B49A6A]" /> The Mind Matters Space
+                <Link to="/mind-matters" className="hover:text-[#C62828] transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C62828]" /> The Mind Matters Space
                 </Link>
               </li>
               <li>
-                <Link to="/book" className="hover:text-[#B49A6A] transition-colors flex items-center gap-2 text-[#E8D8C6]">
-                  <span className="w-1 h-1 rounded-full bg-[#B49A6A]" /> My Book: Welcome Back to Yourself
+                <Link to="/book" className="hover:text-[#C62828] transition-colors flex items-center gap-2 text-white font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C62828]" /> My Book: Welcome Back to Yourself
                 </Link>
               </li>
               <li>
-                <Link to="/book-session" className="hover:text-[#B49A6A] transition-colors flex items-center gap-2 font-medium text-[#B49A6A]">
-                  <span className="w-1 h-1 rounded-full bg-[#B49A6A]" /> Book an Appointment
+                <Link to="/book-session" className="hover:text-white transition-colors flex items-center gap-2 font-bold text-[#C62828]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white" /> Book an Appointment
                 </Link>
               </li>
             </ul>
@@ -95,44 +94,44 @@ export const Footer: React.FC = () => {
 
           {/* Contact & Hours Placeholder - Column 3 */}
           <div className="lg:col-span-4 space-y-4">
-            <h3 className="font-serif text-base font-semibold text-white tracking-wide border-b border-[#B49A6A]/40 pb-2">
+            <h3 className="font-serif text-base font-bold text-white tracking-wide border-b border-[#C62828]/60 pb-2">
               Conversations & Sessions
             </h3>
 
-            <div className="space-y-3 text-sm text-[#C4BEB6]">
+            <div className="space-y-3 text-sm text-[#CCCCCC]">
               <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#B49A6A] shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-[#C62828] shrink-0 mt-1" />
                 <div>
                   <p className="text-white font-medium">{siteConfig.contact.city}, India</p>
-                  <p className="text-xs text-[#948E87]">Online Sessions Worldwide | In-person by appointment</p>
+                  <p className="text-xs text-[#999999]">Online Sessions Worldwide | In-person by appointment</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-[#B49A6A] shrink-0 mt-1" />
+                <Clock className="w-4 h-4 text-[#C62828] shrink-0 mt-1" />
                 <div>
                   <p className="text-white font-medium">Asia / Kolkata (IST)</p>
-                  <p className="text-xs text-[#948E87]">Monday – Saturday, by confirmed booking</p>
+                  <p className="text-xs text-[#999999]">Monday – Saturday, by confirmed booking</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#B49A6A] shrink-0 mt-1" />
+                <Mail className="w-4 h-4 text-[#C62828] shrink-0 mt-1" />
                 <div>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="hover:text-[#B49A6A] transition-colors"
+                    className="hover:text-[#C62828] transition-colors"
                   >
                     {siteConfig.contact.displayEmail}
                   </a>
-                  <p className="text-[11px] text-[#948E87]">General enquiries & confidential booking coordination</p>
+                  <p className="text-[11px] text-[#999999]">General enquiries & confidential booking coordination</p>
                 </div>
               </div>
             </div>
 
             {/* Social Links Placeholders */}
             <div className="pt-2">
-              <p className="text-xs uppercase tracking-wider text-[#948E87] mb-2 font-medium">
+              <p className="text-xs uppercase tracking-wider text-[#999999] mb-2 font-semibold">
                 Connect
               </p>
               <div className="flex items-center space-x-3">
@@ -140,7 +139,7 @@ export const Footer: React.FC = () => {
                   href={siteConfig.contact.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#E8D8C6] hover:bg-[#B49A6A] hover:text-[#171615] transition-all"
+                  className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#C62828] hover:border-[#C62828] transition-all"
                   aria-label="LinkedIn profile"
                 >
                   <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -151,7 +150,7 @@ export const Footer: React.FC = () => {
                   href={siteConfig.contact.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#E8D8C6] hover:bg-[#B49A6A] hover:text-[#171615] transition-all"
+                  className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#C62828] hover:border-[#C62828] transition-all"
                   aria-label="Instagram profile"
                 >
                   <svg className="w-3.5 h-3.5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
@@ -167,33 +166,33 @@ export const Footer: React.FC = () => {
 
         {/* Ethical Coaching & Medical Care Disclaimer */}
         <div className="py-6 border-b border-white/10">
-          <p className="text-xs text-[#948E87] leading-relaxed max-w-5xl">
-            <strong className="text-[#C4BEB6]">Professional Boundary Notice:</strong> {siteConfig.disclaimers.coachingDisclaimer} {siteConfig.disclaimers.confidentialityNotice}
+          <p className="text-xs text-[#888888] leading-relaxed max-w-5xl">
+            <strong className="text-white">Professional Boundary Notice:</strong> {siteConfig.disclaimers.coachingDisclaimer} {siteConfig.disclaimers.confidentialityNotice}
           </p>
         </div>
 
         {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#948E87] gap-4">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#888888] gap-4">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <span>© {currentYear} Mind Matters by Anagha Sonde. All rights reserved.</span>
             <span className="hidden sm:inline text-white/20">•</span>
-            <Link to="/privacy" className="hover:text-[#B49A6A] transition-colors underline-offset-2 hover:underline">
+            <Link to="/privacy" className="hover:text-[#C62828] transition-colors underline-offset-2 hover:underline">
               Privacy Policy & Confidentiality
             </Link>
             <span className="hidden sm:inline text-white/20">•</span>
-            <Link to="/contact" className="hover:text-[#B49A6A] transition-colors underline-offset-2 hover:underline">
+            <Link to="/contact" className="hover:text-[#C62828] transition-colors underline-offset-2 hover:underline">
               Contact
             </Link>
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1 text-[#C4BEB6]">
-              Made with intention <Heart className="w-3 h-3 text-[#B9797D] fill-current" />
+            <span className="inline-flex items-center gap-1 text-[#CCCCCC]">
+              Love life, Live life <Heart className="w-3 h-3 text-[#C62828] fill-current" />
             </span>
             <button
               type="button"
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 border border-white/10 text-[#E8D8C6] hover:bg-[#B49A6A] hover:text-[#171615] transition-all"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 border border-white/10 text-white hover:bg-[#C62828] hover:border-[#C62828] transition-all"
               aria-label="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5" />

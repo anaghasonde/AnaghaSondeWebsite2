@@ -23,6 +23,16 @@ export interface BookEdition {
   available: boolean;
 }
 
+export interface TestimonialItem {
+  id: string;
+  theme: string;
+  quote: string;
+  attribution: string;
+  context: string;
+  isPlaceholder: boolean;
+}
+
+
 export const siteConfig = {
   brand: {
     name: "Mind Matters by Anagha Sonde",
@@ -355,6 +365,44 @@ export const siteConfig = {
         "You can book directly using the 'Book an Appointment' form on this website. Simply select your service, choose an available date and time slot in Asia/Kolkata timezone, provide your basic contact details, and confirm. You will receive immediate booking confirmation and instructions.",
     },
   ] as FaqItem[],
+
+  testimonialsSection: {
+    heading: "Words That Matter",
+    subheadline: "Every journey is different. Every conversation matters.",
+    supportingText:
+      "Life coaching creates space for reflection, clarity, and personal growth. Here is where client experiences can be shared with permission.",
+    notice:
+      "Development Preview: The cards below represent core coaching themes and are clearly labelled placeholders awaiting approved client releases. Authentic testimonials can be updated directly here once verified with client permission.",
+    items: [
+      {
+        id: "testimonial-feeling-heard",
+        theme: "Feeling Heard",
+        quote:
+          "Having a supportive, non-judgmental space to speak freely helped me untangle thoughts I had carried for years. For the first time in a long time, I felt genuinely listened to and understood.",
+        attribution: "Client Reflection",
+        context: "Space to Pause & Reflect",
+        isPlaceholder: true,
+      },
+      {
+        id: "testimonial-clarity-discovery",
+        theme: "Clarity and Self-Discovery",
+        quote:
+          "Our sessions helped me distinguish what truly matters to me from what I thought was expected of me. Gaining that clarity brought an overwhelming sense of calm and direction.",
+        attribution: "Client Reflection",
+        context: "Values & Direction Coaching",
+        isPlaceholder: true,
+      },
+      {
+        id: "testimonial-confidence-forward",
+        theme: "Confidence and Moving Forward",
+        quote:
+          "I learned to trust my own voice and stopped seeking constant external validation. I now make choices with steady confidence and practical next steps that genuinely fit my life.",
+        attribution: "Client Reflection",
+        context: "Self-Belief & Life Decisions",
+        isPlaceholder: true,
+      },
+    ] as TestimonialItem[],
+  },
 
   disclaimers: {
     coachingDisclaimer:

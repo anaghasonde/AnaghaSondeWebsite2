@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#CBB48B"/>
-      <stop offset="50%" stop-color="#B49A6A"/>
-      <stop offset="100%" stop-color="#8E7548"/>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E53935"/>
+      <stop offset="50%" stop-color="#C62828"/>
+      <stop offset="100%" stop-color="#8E1515"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#171615"/>
-  <circle cx="32" cy="32" r="28" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" stroke-dasharray="3 1.5"/>
-  <circle cx="32" cy="32" r="25" fill="none" stroke="#B49A6A" stroke-width="0.75" opacity="0.6"/>
+  <rect width="64" height="64" rx="14" fill="#111111"/>
+  <circle cx="32" cy="32" r="28" fill="none" stroke="url(#redGrad)" stroke-width="1.5" stroke-dasharray="3 1.5"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#C62828" stroke-width="0.75" opacity="0.6"/>
   <!-- Elegant Monogram MM -->
-  <text x="32" y="39" font-family="'Playfair Display', Georgia, serif" font-size="22" font-weight="600" fill="url(#goldGrad)" text-anchor="middle" letter-spacing="1">M</text>
-  <circle cx="32" cy="18" r="1.5" fill="#B49A6A" />
+  <text x="32" y="39" font-family="'Playfair Display', Georgia, serif" font-size="22" font-weight="700" fill="url(#redGrad)" text-anchor="middle" letter-spacing="1">M</text>
+  <circle cx="32" cy="18" r="1.5" fill="#C62828" />
 </svg>

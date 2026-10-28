@@ -29,10 +29,10 @@ export const FloatingBookingButton: React.FC = () => {
     <div className="md:hidden fixed bottom-5 right-4 z-40 transition-all duration-300 transform translate-y-0">
       <Link
         to="/book-session"
-        className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#171615] text-white text-xs font-semibold tracking-wide rounded-full shadow-lg border border-[#B49A6A]/60 hover:bg-[#B49A6A] hover:text-[#171615] transition-all"
+        className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#C62828] text-white text-xs font-bold tracking-wide rounded-full shadow-xl border border-red-400 hover:bg-[#8E1515] transition-all"
         aria-label="Book an Appointment"
       >
-        <Calendar className="w-3.5 h-3.5 text-[#B49A6A]" />
+        <Calendar className="w-3.5 h-3.5 text-white" />
         <span>Book a Session</span>
       </Link>
     </div>

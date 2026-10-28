@@ -3,23 +3,23 @@ import { Link } from 'react-router-dom';
 import { Calendar, BookOpen, ShieldCheck, ArrowRight } from 'lucide-react';
 
 import { siteConfig } from '../config/siteConfig';
-import { GoldLine, GoldBadge } from '../components/GoldMotif';
+import { RedLine, BrandBadge } from '../components/GoldMotif';
 
 export const AboutPage: React.FC = () => {
   return (
-    <div className="py-12 sm:py-20 bg-[#F8F5EF]">
+    <div className="py-12 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb & Subtitle */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <GoldBadge>Founder & Life Coach</GoldBadge>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#171615]">
+          <BrandBadge>Founder & Life Coach</BrandBadge>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111111]">
             Hello, I'm Anagha.
           </h1>
-          <p className="font-serif italic text-lg sm:text-xl text-[#B49A6A]">
+          <p className="font-serif italic text-lg sm:text-xl text-[#C62828] font-semibold">
             "I believe that sometimes, the answers we are looking for begin with being truly heard."
           </p>
-          <GoldLine />
+          <RedLine />
         </div>
 
         {/* 2-Column Story Section */}
@@ -28,46 +28,46 @@ export const AboutPage: React.FC = () => {
           {/* Portrait Column */}
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="relative max-w-sm w-full">
-              <div className="absolute -inset-2 rounded-2xl border border-[#B49A6A]/40 -rotate-1" />
-              <div className="relative rounded-xl overflow-hidden bg-[#171615] shadow-xl border border-[#B49A6A]/30">
+              <div className="absolute -inset-2.5 rounded-2xl border-2 border-[#C62828]/40 -rotate-1" />
+              <div className="relative rounded-xl overflow-hidden bg-[#111111] shadow-2xl border-2 border-[#111111]">
                 <img
                   src={siteConfig.brand.portraitPath}
                   alt="Anagha Sonde - Life Coach & Author"
-                  className="w-full h-auto object-cover object-top aspect-[4/5]"
+                  className="w-full h-auto object-cover object-top aspect-[3/4]"
                 />
               </div>
 
               {/* Caption */}
-              <div className="mt-4 p-4 rounded-lg bg-white border border-[#E8D8C6] text-center shadow-xs">
-                <p className="font-serif text-base font-bold text-[#171615]">Anagha Sonde</p>
-                <p className="text-xs text-[#706B65]">Life Coach • Author of "Welcome Back to Yourself"</p>
-                <p className="text-[11px] text-[#B49A6A] mt-1 font-medium">Founder, Mind Matters (est. 2022)</p>
+              <div className="mt-4 p-4 rounded-xl bg-[#F5F5F5] border border-[#E5E5E5] text-center shadow-xs">
+                <p className="font-serif text-base font-bold text-[#111111]">Anagha Sonde</p>
+                <p className="text-xs text-[#555555]">Life Coach • Author of "Welcome Back to Yourself"</p>
+                <p className="text-[11px] text-[#C62828] mt-1 font-bold">Founder, Mind Matters (est. 2022)</p>
               </div>
             </div>
 
             {/* Quick Connect Box */}
-            <div className="mt-6 w-full max-w-sm p-6 rounded-lg bg-white border border-[#E8D8C6] space-y-4">
-              <h3 className="font-serif text-base font-semibold text-[#171615] border-b border-[#E8D8C6] pb-2">
+            <div className="mt-6 w-full max-w-sm p-6 rounded-xl bg-[#F5F5F5] border border-[#E5E5E5] space-y-4">
+              <h3 className="font-serif text-base font-bold text-[#111111] border-b border-[#E5E5E5] pb-2">
                 Session Availability
               </h3>
-              <p className="text-xs text-[#706B65] leading-relaxed">
+              <p className="text-xs text-[#555555] leading-relaxed">
                 Sessions are held one-to-one, either online worldwide or in person in Bengaluru by prior appointment.
               </p>
               <Link
                 to="/book-session"
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-[#171615] hover:bg-[#B49A6A] text-white text-xs font-semibold rounded-sm transition-colors text-center"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-xs font-bold rounded-sm transition-colors text-center shadow-sm"
               >
-                <Calendar className="w-3.5 h-3.5 text-[#B49A6A]" />
+                <Calendar className="w-3.5 h-3.5 text-white" />
                 <span>Book a Confidential Session</span>
               </Link>
             </div>
           </div>
 
           {/* Narrative Content Column */}
-          <div className="lg:col-span-7 space-y-6 text-[#706B65] text-sm sm:text-base leading-relaxed">
+          <div className="lg:col-span-7 space-y-6 text-[#444444] text-sm sm:text-base leading-relaxed">
             
-            <div className="p-5 rounded-lg bg-white border border-[#E8D8C6]">
-              <p className="font-serif text-lg text-[#171615] italic">
+            <div className="p-6 rounded-xl bg-[#F5F5F5] border border-[#E5E5E5]">
+              <p className="font-serif text-lg text-[#111111] italic leading-relaxed">
                 "My approach to life coaching is rooted in listening, understanding, and helping people make sense of their own experiences. I believe every person has a unique story, and no two journeys are the same."
               </p>
             </div>
@@ -85,8 +85,8 @@ export const AboutPage: React.FC = () => {
             </p>
 
             {/* Sub-section: A little about my journey */}
-            <div className="pt-6 border-t border-[#E8D8C6] space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#171615]">
+            <div className="pt-6 border-t border-[#E5E5E5] space-y-4">
+              <h2 className="font-serif text-2xl font-bold text-[#111111]">
                 A little about my journey.
               </h2>
 
@@ -99,8 +99,8 @@ export const AboutPage: React.FC = () => {
               </p>
 
               {/* Note on claimed client count */}
-              <div className="p-4 rounded bg-[#E8D8C6]/40 border border-[#B49A6A]/30 text-xs text-[#171615] flex items-start gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-[#B49A6A] shrink-0 mt-0.5" />
+              <div className="p-4 rounded-xl bg-red-50/50 border border-red-200 text-xs text-[#111111] flex items-start gap-2.5">
+                <ShieldCheck className="w-4 h-4 text-[#C62828] shrink-0 mt-0.5" />
                 <div>
                   <strong>Professional Transparency:</strong> Experience includes supporting approximately 150 clients to date (stated as a verified claim in accordance with professional honesty standards). Every engagement is handled with strict confidentiality.
                 </div>
@@ -108,8 +108,8 @@ export const AboutPage: React.FC = () => {
             </div>
 
             {/* The Author Dimension */}
-            <div className="pt-6 border-t border-[#E8D8C6] space-y-4">
-              <h2 className="font-serif text-2xl font-bold text-[#171615]">
+            <div className="pt-6 border-t border-[#E5E5E5] space-y-4">
+              <h2 className="font-serif text-2xl font-bold text-[#111111]">
                 Writing as a Reflection of Life
               </h2>
 
@@ -120,20 +120,20 @@ export const AboutPage: React.FC = () => {
               <div className="flex items-center gap-4 pt-2">
                 <Link
                   to="/book"
-                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#171615] hover:text-[#B49A6A] transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#111111] hover:text-[#C62828] transition-colors"
                 >
-                  <BookOpen className="w-4 h-4 text-[#B49A6A]" />
+                  <BookOpen className="w-4 h-4 text-[#C62828]" />
                   <span>Explore the Book</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#C62828]" />
                 </Link>
               </div>
             </div>
 
             {/* Let's Connect CTA */}
-            <div className="pt-8 border-t border-[#E8D8C6] flex flex-wrap items-center gap-4">
+            <div className="pt-8 border-t border-[#E5E5E5] flex flex-wrap items-center gap-4">
               <Link
                 to="/book-session"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#171615] hover:bg-[#B49A6A] text-white text-sm font-semibold rounded-sm transition-all shadow-sm"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-bold rounded-sm transition-all shadow-sm"
               >
                 <span>Let's Connect</span>
                 <ArrowRight className="w-4 h-4" />
@@ -141,7 +141,7 @@ export const AboutPage: React.FC = () => {
 
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#E8D8C6]/40 text-[#171615] text-sm font-semibold rounded-sm border border-[#E8D8C6] hover:border-[#B49A6A] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#F5F5F5] text-[#111111] text-sm font-bold rounded-sm border-2 border-[#111111] hover:border-[#C62828] hover:text-[#C62828] transition-all"
               >
                 <span>Send a Message</span>
               </Link>

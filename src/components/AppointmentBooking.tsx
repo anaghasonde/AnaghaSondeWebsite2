@@ -15,7 +15,6 @@ import {
 } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
-
 interface BookingFormData {
   serviceId: string;
   format: 'online' | 'in-person';
@@ -69,15 +68,13 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
     },
   ];
 
-  // Helper to generate selectable dates (next 21 days, skipping Sundays if desired)
+  // Helper to generate selectable dates (next 21 days, skipping Sundays)
   const getAvailableDates = () => {
     const dates = [];
     const today = new Date();
-    // Start from tomorrow
     for (let i = 1; i <= 21; i++) {
       const d = new Date(today);
       d.setDate(today.getDate() + i);
-      // Let's include Mon to Sat (0 is Sunday)
       const dayOfWeek = d.getDay();
       if (dayOfWeek !== 0) {
         const isoString = d.toISOString().split('T')[0];
@@ -166,7 +163,6 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
 
     setIsSubmitting(true);
 
-    // Simulate reliable booking creation and reference generation
     setTimeout(() => {
       const refCode = `MM-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
       setBookingReference(refCode);
@@ -180,7 +176,6 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
     if (!formData.date || !formData.timeSlot) return;
 
     const title = `Life Coaching Session with Anagha Sonde (${selectedService?.title || 'Coaching'})`;
-
     const description = `Mind Matters Confidential 60-min Life Coaching Session with Anagha Sonde. Format: ${formData.format === 'online' ? 'Online Video Call' : 'In-person (Bengaluru)'}. Booking Ref: ${bookingReference}`;
     const location = formData.format === 'online' ? 'Google Meet / Zoom (Link to be shared)' : 'Bengaluru, India';
 
@@ -212,15 +207,15 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
   const selectedService = coachingServiceOptions.find((s) => s.id === formData.serviceId);
 
   return (
-    <div className={`bg-white rounded-lg border border-[#E8D8C6] shadow-sm overflow-hidden ${className}`}>
+    <div className={`bg-white rounded-xl border border-[#E5E5E5] shadow-sm overflow-hidden ${className}`}>
       
       {/* Top Banner / Progress Indicator */}
-      <div className="bg-[#171615] text-[#F8F5EF] px-6 py-4 flex flex-wrap items-center justify-between gap-3 border-b border-[#B49A6A]/30">
+      <div className="bg-[#111111] text-white px-6 py-4 flex flex-wrap items-center justify-between gap-3 border-b-2 border-[#C62828]">
         <div>
-          <span className="text-xs uppercase tracking-widest text-[#B49A6A] font-semibold">
+          <span className="text-xs uppercase tracking-widest text-[#C62828] font-bold">
             Confidential Reservation
           </span>
-          <h3 className="font-serif text-lg sm:text-xl font-medium text-white">
+          <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
             {currentStep === 5 ? 'Booking Confirmed' : 'Book a Coaching Session'}
           </h3>
         </div>
@@ -231,18 +226,18 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
             {[1, 2, 3, 4].map((stepNum) => (
               <span
                 key={stepNum}
-                className={`w-6 h-6 rounded-full flex items-center justify-center font-medium transition-colors ${
+                className={`w-6 h-6 rounded-full flex items-center justify-center font-bold transition-colors ${
                   stepNum === currentStep
-                    ? 'bg-[#B49A6A] text-[#171615] font-bold'
+                    ? 'bg-[#C62828] text-white'
                     : stepNum < currentStep
                     ? 'bg-white/20 text-white'
-                    : 'bg-white/5 text-[#706B65]'
+                    : 'bg-white/5 text-[#888888]'
                 }`}
               >
                 {stepNum}
               </span>
             ))}
-            <span className="text-[#948E87] ml-1">Step {currentStep} of 4</span>
+            <span className="text-[#AAAAAA] ml-1 font-medium">Step {currentStep} of 4</span>
           </div>
         )}
       </div>
@@ -253,10 +248,10 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
         {currentStep === 1 && (
           <div className="space-y-6">
             <div>
-              <h4 className="font-serif text-xl text-[#171615] font-semibold">
+              <h4 className="font-serif text-xl text-[#111111] font-bold">
                 Step 1: Choose Your Coaching Focus
               </h4>
-              <p className="text-sm text-[#706B65] mt-1">
+              <p className="text-sm text-[#555555] mt-1">
                 Select the area of your life you would like to explore together.
               </p>
             </div>
@@ -276,27 +271,27 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                     key={service.id}
                     type="button"
                     onClick={() => handleServiceChange(service.id)}
-                    className={`text-left p-3.5 rounded-md border transition-all ${
+                    className={`text-left p-4 rounded-lg border transition-all ${
                       isSelected
-                        ? 'border-[#B49A6A] bg-[#F8F5EF] ring-1 ring-[#B49A6A]'
-                        : 'border-[#E8D8C6]/80 hover:border-[#B49A6A]/60 bg-white'
+                        ? 'border-[#C62828] bg-red-50/40 ring-1 ring-[#C62828]'
+                        : 'border-[#E5E5E5] hover:border-[#C62828]/60 bg-white'
                     }`}
                   >
                     <div className="flex items-start justify-between">
-                      <p className="font-serif text-sm font-semibold text-[#171615]">
+                      <p className="font-serif text-sm font-bold text-[#111111]">
                         {service.title}
                       </p>
                       <span
                         className={`w-4 h-4 rounded-full border mt-0.5 shrink-0 flex items-center justify-center ${
                           isSelected
-                            ? 'border-[#B49A6A] bg-[#B49A6A]'
-                            : 'border-[#706B65]/40'
+                            ? 'border-[#C62828] bg-[#C62828]'
+                            : 'border-[#CCCCCC]'
                         }`}
                       >
                         {isSelected && <span className="w-1.5 h-1.5 bg-white rounded-full" />}
                       </span>
                     </div>
-                    <p className="text-xs text-[#706B65] mt-1.5 line-clamp-2">
+                    <p className="text-xs text-[#555555] mt-1.5 line-clamp-2">
                       {service.description}
                     </p>
                   </button>
@@ -305,22 +300,22 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
             </div>
 
             {/* Preferred Format */}
-            <div className="pt-4 border-t border-[#E8D8C6]">
-              <label className="block text-xs uppercase tracking-wider font-semibold text-[#171615] mb-2">
+            <div className="pt-4 border-t border-[#E5E5E5]">
+              <label className="block text-xs uppercase tracking-wider font-bold text-[#111111] mb-2.5">
                 Preferred Session Format
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   type="button"
                   onClick={() => handleFormatChange('online')}
-                  className={`p-3.5 rounded-md border text-left transition-all ${
+                  className={`p-4 rounded-lg border text-left transition-all ${
                     formData.format === 'online'
-                      ? 'border-[#B49A6A] bg-[#F8F5EF] ring-1 ring-[#B49A6A]'
-                      : 'border-[#E8D8C6]/80 hover:border-[#B49A6A]/60 bg-white'
+                      ? 'border-[#C62828] bg-red-50/40 ring-1 ring-[#C62828]'
+                      : 'border-[#E5E5E5] hover:border-[#C62828]/60 bg-white'
                   }`}
                 >
-                  <p className="font-medium text-sm text-[#171615]">Online Session (Video Call)</p>
-                  <p className="text-xs text-[#706B65] mt-1">
+                  <p className="font-bold text-sm text-[#111111]">Online Session (Video Call)</p>
+                  <p className="text-xs text-[#555555] mt-1">
                     Google Meet or Zoom from your private space. Available worldwide.
                   </p>
                 </button>
@@ -328,14 +323,14 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                 <button
                   type="button"
                   onClick={() => handleFormatChange('in-person')}
-                  className={`p-3.5 rounded-md border text-left transition-all ${
+                  className={`p-4 rounded-lg border text-left transition-all ${
                     formData.format === 'in-person'
-                      ? 'border-[#B49A6A] bg-[#F8F5EF] ring-1 ring-[#B49A6A]'
-                      : 'border-[#E8D8C6]/80 hover:border-[#B49A6A]/60 bg-white'
+                      ? 'border-[#C62828] bg-red-50/40 ring-1 ring-[#C62828]'
+                      : 'border-[#E5E5E5] hover:border-[#C62828]/60 bg-white'
                   }`}
                 >
-                  <p className="font-medium text-sm text-[#171615]">In-Person Session (Bengaluru)</p>
-                  <p className="text-xs text-[#706B65] mt-1">
+                  <p className="font-bold text-sm text-[#111111]">In-Person Session (Bengaluru)</p>
+                  <p className="text-xs text-[#555555] mt-1">
                     Quiet, reflective space in Bengaluru, subject to schedule availability.
                   </p>
                 </button>
@@ -346,7 +341,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
               <button
                 type="button"
                 onClick={handleNext}
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#171615] hover:bg-[#B49A6A] text-white text-sm font-medium rounded-sm transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-semibold rounded-sm transition-colors shadow-sm"
               >
                 <span>Continue to Date & Time</span>
                 <ChevronRight className="w-4 h-4" />
@@ -360,11 +355,11 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
           <div className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h4 className="font-serif text-xl text-[#171615] font-semibold">
+                <h4 className="font-serif text-xl text-[#111111] font-bold">
                   Step 2: Select Date & Time Slot
                 </h4>
-                <p className="text-sm text-[#706B65] mt-1 flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#B49A6A]" />
+                <p className="text-sm text-[#555555] mt-1 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#C62828]" />
                   <span>Timezone: <strong>{siteConfig.contact.timezone}</strong> (60 minutes per session)</span>
                 </p>
               </div>
@@ -378,7 +373,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
 
             {/* Date Picker Carousel / Grid */}
             <div>
-              <label className="block text-xs uppercase tracking-wider font-semibold text-[#171615] mb-2.5">
+              <label className="block text-xs uppercase tracking-wider font-bold text-[#111111] mb-2.5">
                 Select An Upcoming Date (Mon – Sat)
               </label>
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
@@ -389,13 +384,13 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                       key={item.iso}
                       type="button"
                       onClick={() => handleDateSelect(item.iso)}
-                      className={`p-2.5 rounded-md border text-center transition-all ${
+                      className={`p-2.5 rounded-lg border text-center transition-all ${
                         isSelected
-                          ? 'border-[#B49A6A] bg-[#171615] text-white shadow-sm'
-                          : 'border-[#E8D8C6] hover:border-[#B49A6A] bg-white text-[#171615]'
+                          ? 'border-[#C62828] bg-[#111111] text-white shadow-sm ring-1 ring-[#C62828]'
+                          : 'border-[#E5E5E5] hover:border-[#C62828] bg-white text-[#111111]'
                       }`}
                     >
-                      <span className={`block text-[11px] font-medium uppercase ${isSelected ? 'text-[#CBB48B]' : 'text-[#706B65]'}`}>
+                      <span className={`block text-[11px] font-bold uppercase ${isSelected ? 'text-[#C62828]' : 'text-[#666666]'}`}>
                         {item.displayDay}
                       </span>
                       <span className="block text-sm font-bold mt-0.5">
@@ -409,8 +404,8 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
 
             {/* Time Slot Picker */}
             {formData.date ? (
-              <div className="pt-4 border-t border-[#E8D8C6]">
-                <label className="block text-xs uppercase tracking-wider font-semibold text-[#171615] mb-2.5">
+              <div className="pt-4 border-t border-[#E5E5E5]">
+                <label className="block text-xs uppercase tracking-wider font-bold text-[#111111] mb-2.5">
                   Select A Time Slot ({siteConfig.contact.timezone})
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -421,10 +416,10 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                         key={slot}
                         type="button"
                         onClick={() => handleTimeSlotSelect(slot)}
-                        className={`p-2.5 rounded border text-center text-xs font-medium transition-all ${
+                        className={`p-2.5 rounded-md border text-center text-xs font-bold transition-all ${
                           isSelected
-                            ? 'border-[#B49A6A] bg-[#B49A6A] text-[#171615] font-semibold'
-                            : 'border-[#E8D8C6] hover:border-[#B49A6A] bg-[#F8F5EF]/60 text-[#171615]'
+                            ? 'border-[#C62828] bg-[#C62828] text-white shadow-xs'
+                            : 'border-[#E5E5E5] hover:border-[#C62828] bg-[#F5F5F5] text-[#111111]'
                         }`}
                       >
                         {slot}
@@ -434,16 +429,16 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                 </div>
               </div>
             ) : (
-              <div className="p-4 rounded bg-[#F8F5EF] border border-[#E8D8C6] text-center text-xs text-[#706B65]">
+              <div className="p-4 rounded-lg bg-[#F5F5F5] border border-[#E5E5E5] text-center text-xs text-[#555555]">
                 Please select a date above to view available 60-minute time slots.
               </div>
             )}
 
-            <div className="flex items-center justify-between pt-4 border-t border-[#E8D8C6]">
+            <div className="flex items-center justify-between pt-4 border-t border-[#E5E5E5]">
               <button
                 type="button"
                 onClick={handleBack}
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-[#706B65] hover:text-[#171615]"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-[#555555] hover:text-[#111111]"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Back</span>
@@ -453,7 +448,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                 type="button"
                 onClick={handleNext}
                 disabled={!formData.date || !formData.timeSlot}
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#171615] hover:bg-[#B49A6A] text-white text-sm font-medium rounded-sm transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-semibold rounded-sm transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span>Continue to Your Details</span>
                 <ChevronRight className="w-4 h-4" />
@@ -466,10 +461,10 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
         {currentStep === 3 && (
           <div className="space-y-5">
             <div>
-              <h4 className="font-serif text-xl text-[#171615] font-semibold">
+              <h4 className="font-serif text-xl text-[#111111] font-bold">
                 Step 3: Your Contact Details
               </h4>
-              <p className="text-sm text-[#706B65] mt-1">
+              <p className="text-sm text-[#555555] mt-1">
                 Your contact information is used strictly to coordinate your session and send appointment confirmations.
               </p>
             </div>
@@ -478,17 +473,17 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
               
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-semibold text-[#171615] mb-1.5">
-                  Full Name <span className="text-red-500">*</span>
+                <label className="block text-xs font-bold text-[#111111] mb-1.5">
+                  Full Name <span className="text-[#C62828]">*</span>
                 </label>
                 <div className="relative">
-                  <User className="w-4 h-4 absolute left-3 top-3 text-[#706B65]" />
+                  <User className="w-4 h-4 absolute left-3 top-3 text-[#777777]" />
                   <input
                     type="text"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    placeholder="Ananya Sharma"
-                    className="w-full pl-9 pr-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                    placeholder="Full name"
+                    className="w-full pl-9 pr-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
                   />
                 </div>
                 {errors.fullName && <p className="text-xs text-red-600 mt-1">{errors.fullName}</p>}
@@ -496,17 +491,17 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
 
               {/* Email Address */}
               <div>
-                <label className="block text-xs font-semibold text-[#171615] mb-1.5">
-                  Email Address <span className="text-red-500">*</span>
+                <label className="block text-xs font-bold text-[#111111] mb-1.5">
+                  Email Address <span className="text-[#C62828]">*</span>
                 </label>
                 <div className="relative">
-                  <Mail className="w-4 h-4 absolute left-3 top-3 text-[#706B65]" />
+                  <Mail className="w-4 h-4 absolute left-3 top-3 text-[#777777]" />
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="ananya@example.com"
-                    className="w-full pl-9 pr-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                    placeholder="name@example.com"
+                    className="w-full pl-9 pr-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
                   />
                 </div>
                 {errors.email && <p className="text-xs text-red-600 mt-1">{errors.email}</p>}
@@ -514,34 +509,34 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
 
               {/* Phone (Optional) */}
               <div className="sm:col-span-2">
-                <label className="block text-xs font-semibold text-[#171615] mb-1.5">
-                  Phone Number <span className="text-xs text-[#706B65] font-normal">(Optional — for WhatsApp/SMS reminder)</span>
+                <label className="block text-xs font-bold text-[#111111] mb-1.5">
+                  Phone Number <span className="text-xs text-[#777777] font-normal">(Optional — for WhatsApp/SMS reminder)</span>
                 </label>
                 <div className="relative">
-                  <Phone className="w-4 h-4 absolute left-3 top-3 text-[#706B65]" />
+                  <Phone className="w-4 h-4 absolute left-3 top-3 text-[#777777]" />
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 98765 43210"
-                    className="w-full pl-9 pr-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                    placeholder="+91..."
+                    className="w-full pl-9 pr-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
                   />
                 </div>
               </div>
 
               {/* Short Message (Optional) */}
               <div className="sm:col-span-2">
-                <label className="block text-xs font-semibold text-[#171615] mb-1.5">
-                  What would you like us to know before our session? <span className="text-xs text-[#706B65] font-normal">(Optional)</span>
+                <label className="block text-xs font-bold text-[#111111] mb-1.5">
+                  What would you like us to know before our session? <span className="text-xs text-[#777777] font-normal">(Optional)</span>
                 </label>
                 <div className="relative">
-                  <MessageSquare className="w-4 h-4 absolute left-3 top-3 text-[#706B65]" />
+                  <MessageSquare className="w-4 h-4 absolute left-3 top-3 text-[#777777]" />
                   <textarea
                     rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="A brief sentence about what you would like to explore (you don't have to share sensitive details here; we will talk openly in our session)."
-                    className="w-full pl-9 pr-3 py-2 text-sm border border-[#E8D8C6] rounded bg-[#F8F5EF]/30 focus:outline-none focus:border-[#B49A6A] focus:ring-1 focus:ring-[#B49A6A]"
+                    placeholder="A brief note about what you would like to explore (you don't have to share sensitive details here; we will talk openly in our session)."
+                    className="w-full pl-9 pr-3 py-2 text-sm border border-[#E5E5E5] rounded-md bg-[#F5F5F5]/40 focus:outline-none focus:border-[#C62828] focus:ring-1 focus:ring-[#C62828]"
                   />
                 </div>
               </div>
@@ -554,11 +549,11 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                   type="checkbox"
                   checked={formData.privacyConsent}
                   onChange={(e) => setFormData({ ...formData, privacyConsent: e.target.checked })}
-                  className="mt-1 rounded text-[#B49A6A] focus:ring-[#B49A6A] border-[#E8D8C6]"
+                  className="mt-1 rounded text-[#C62828] focus:ring-[#C62828] border-[#CCCCCC]"
                 />
-                <span className="text-xs text-[#706B65] leading-relaxed">
+                <span className="text-xs text-[#555555] leading-relaxed">
                   I understand that my information is kept private and confidential in accordance with the{' '}
-                  <a href="/privacy" target="_blank" className="text-[#171615] underline hover:text-[#B49A6A]">
+                  <a href="/privacy" target="_blank" className="text-[#111111] font-bold underline hover:text-[#C62828]">
                     Privacy Policy
                   </a>
                   . Life coaching is a reflective developmental process, not clinical psychotherapy or psychiatric care.
@@ -569,11 +564,11 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
               )}
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-[#E8D8C6]">
+            <div className="flex items-center justify-between pt-4 border-t border-[#E5E5E5]">
               <button
                 type="button"
                 onClick={handleBack}
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-[#706B65] hover:text-[#171615]"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-[#555555] hover:text-[#111111]"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Back</span>
@@ -582,7 +577,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
               <button
                 type="button"
                 onClick={handleNext}
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#171615] hover:bg-[#B49A6A] text-white text-sm font-medium rounded-sm transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-semibold rounded-sm transition-colors shadow-sm"
               >
                 <span>Review & Confirm</span>
                 <ChevronRight className="w-4 h-4" />
@@ -595,65 +590,65 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
         {currentStep === 4 && (
           <div className="space-y-6">
             <div>
-              <h4 className="font-serif text-xl text-[#171615] font-semibold">
+              <h4 className="font-serif text-xl text-[#111111] font-bold">
                 Step 4: Review Your Booking Details
               </h4>
-              <p className="text-sm text-[#706B65] mt-1">
+              <p className="text-sm text-[#555555] mt-1">
                 Please take a moment to review your appointment summary before submitting.
               </p>
             </div>
 
             {/* Summary Card */}
-            <div className="p-5 rounded-md bg-[#F8F5EF] border border-[#E8D8C6] space-y-4">
+            <div className="p-5 rounded-xl bg-[#F5F5F5] border border-[#E5E5E5] space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-[#706B65] font-medium block">
+                  <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold block">
                     Selected Service
                   </span>
-                  <p className="font-serif font-semibold text-[#171615] mt-0.5">
+                  <p className="font-serif font-bold text-[#111111] mt-0.5">
                     {selectedService?.title}
                   </p>
                 </div>
 
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-[#706B65] font-medium block">
+                  <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold block">
                     Session Format
                   </span>
-                  <p className="font-medium text-[#171615] mt-0.5">
+                  <p className="font-medium text-[#111111] mt-0.5">
                     {formData.format === 'online' ? 'Online Session (Google Meet / Zoom)' : 'In-Person (Bengaluru)'}
                   </p>
                 </div>
 
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-[#706B65] font-medium block">
+                  <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold block">
                     Date & Time
                   </span>
-                  <p className="font-medium text-[#171615] mt-0.5 flex items-center gap-1.5">
-                    <CalendarCheck2 className="w-4 h-4 text-[#B49A6A]" />
+                  <p className="font-bold text-[#111111] mt-0.5 flex items-center gap-1.5">
+                    <CalendarCheck2 className="w-4 h-4 text-[#C62828]" />
                     {formData.date} at {formData.timeSlot}
                   </p>
-                  <span className="text-xs text-[#706B65]">Timezone: {siteConfig.contact.timezone}</span>
+                  <span className="text-xs text-[#777777]">Timezone: {siteConfig.contact.timezone}</span>
                 </div>
 
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-[#706B65] font-medium block">
+                  <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold block">
                     Duration & Fee
                   </span>
-                  <p className="font-medium text-[#171615] mt-0.5">
+                  <p className="font-bold text-[#C62828] mt-0.5 text-base">
                     {siteConfig.sessionDetails.durationDisplay} — {siteConfig.sessionDetails.feeDisplay}
                   </p>
-                  <span className="text-[11px] text-[#706B65]">{siteConfig.sessionDetails.feeNote}</span>
+                  <span className="text-[11px] text-[#777777]">{siteConfig.sessionDetails.feeNote}</span>
                 </div>
 
-                <div className="sm:col-span-2 pt-3 border-t border-[#E8D8C6]">
-                  <span className="text-xs uppercase tracking-wider text-[#706B65] font-medium block">
+                <div className="sm:col-span-2 pt-3 border-t border-[#E5E5E5]">
+                  <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold block">
                     Your Contact
                   </span>
-                  <p className="text-sm text-[#171615] font-medium mt-0.5">
+                  <p className="text-sm text-[#111111] font-medium mt-0.5">
                     {formData.fullName} ({formData.email}) {formData.phone ? `• ${formData.phone}` : ''}
                   </p>
                   {formData.message && (
-                    <p className="text-xs text-[#706B65] italic mt-1 bg-white/60 p-2 rounded">
+                    <p className="text-xs text-[#555555] italic mt-1 bg-white p-2.5 rounded border border-[#E5E5E5]">
                       "{formData.message}"
                     </p>
                   )}
@@ -662,19 +657,19 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
             </div>
 
             {/* Transparent Status Note */}
-            <div className="p-3.5 bg-amber-50/60 rounded border border-amber-200/80 flex items-start gap-2.5 text-xs text-amber-900">
-              <Info className="w-4 h-4 shrink-0 text-amber-700 mt-0.5" />
+            <div className="p-3.5 bg-red-50/50 rounded-lg border border-red-200 flex items-start gap-2.5 text-xs text-[#333333]">
+              <Info className="w-4 h-4 shrink-0 text-[#C62828] mt-0.5" />
               <div>
                 <strong>Appointment status:</strong> Submitting will record your preferred time slot and send a booking coordination request to Anagha Sonde. Your session is formally locked once scheduled and confirmed directly.
               </div>
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-[#E8D8C6]">
+            <div className="flex items-center justify-between pt-4 border-t border-[#E5E5E5]">
               <button
                 type="button"
                 onClick={handleBack}
                 disabled={isSubmitting}
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-[#706B65] hover:text-[#171615]"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-[#555555] hover:text-[#111111]"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Back</span>
@@ -684,7 +679,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                 type="button"
                 onClick={handleConfirmBooking}
                 disabled={isSubmitting}
-                className="inline-flex items-center gap-2 px-7 py-3 bg-[#171615] hover:bg-[#B49A6A] text-white text-sm font-semibold rounded-sm transition-all shadow-md disabled:opacity-75"
+                className="inline-flex items-center gap-2 px-7 py-3 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-bold rounded-sm transition-all shadow-md disabled:opacity-75"
               >
                 {isSubmitting ? (
                   <>
@@ -693,7 +688,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                   </>
                 ) : (
                   <>
-                    <CalendarIcon className="w-4 h-4 text-[#B49A6A]" />
+                    <CalendarIcon className="w-4 h-4 text-white" />
                     <span>Confirm Coaching Session</span>
                   </>
                 )}
@@ -705,34 +700,34 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
         {/* STEP 5: CONFIRMATION STATE */}
         {currentStep === 5 && bookingConfirmed && (
           <div className="py-6 text-center space-y-6">
-            <div className="w-16 h-16 rounded-full bg-[#E8D8C6]/50 border-2 border-[#B49A6A] flex items-center justify-center mx-auto text-[#B49A6A]">
+            <div className="w-16 h-16 rounded-full bg-red-50 border-2 border-[#C62828] flex items-center justify-center mx-auto text-[#C62828]">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#B49A6A] font-semibold">
+              <span className="text-xs uppercase tracking-widest text-[#C62828] font-bold">
                 Session Requested & Scheduled
               </span>
-              <h4 className="font-serif text-2xl sm:text-3xl font-bold text-[#171615] mt-1">
+              <h4 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111] mt-1">
                 Thank you, {formData.fullName}.
               </h4>
-              <p className="text-sm text-[#706B65] max-w-lg mx-auto mt-2">
+              <p className="text-sm text-[#555555] max-w-lg mx-auto mt-2">
                 Your appointment request has been prepared. We look forward to creating a thoughtful, reflective space for you.
               </p>
             </div>
 
             {/* Reference & Details Badge */}
-            <div className="p-5 rounded-lg bg-[#F8F5EF] border border-[#E8D8C6] max-w-md mx-auto text-left space-y-3">
-              <div className="flex items-center justify-between border-b border-[#E8D8C6] pb-2">
-                <span className="text-xs uppercase tracking-wider text-[#706B65] font-medium">
+            <div className="p-5 rounded-xl bg-[#F5F5F5] border border-[#E5E5E5] max-w-md mx-auto text-left space-y-3">
+              <div className="flex items-center justify-between border-b border-[#E5E5E5] pb-2">
+                <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold">
                   Reference Code
                 </span>
-                <span className="font-mono text-sm font-bold text-[#171615] bg-[#E8D8C6]/60 px-2 py-0.5 rounded">
+                <span className="font-mono text-sm font-bold text-[#C62828] bg-red-50 px-2 py-0.5 rounded border border-red-200">
                   {bookingReference}
                 </span>
               </div>
 
-              <div className="text-xs text-[#171615] space-y-1.5">
+              <div className="text-xs text-[#111111] space-y-1.5">
                 <p>
                   <strong>Service:</strong> {selectedService?.title}
                 </p>
@@ -753,9 +748,9 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
               <button
                 type="button"
                 onClick={downloadIcsCalendar}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#171615] hover:bg-[#B49A6A] text-white text-xs font-semibold rounded-sm transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-xs font-bold rounded-sm transition-colors shadow-sm"
               >
-                <Download className="w-4 h-4 text-[#B49A6A]" />
+                <Download className="w-4 h-4 text-white" />
                 <span>Add to My Calendar (.ics)</span>
               </button>
 
@@ -776,14 +771,13 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                     privacyConsent: false,
                   });
                 }}
-                className="px-4 py-2.5 border border-[#E8D8C6] text-xs font-medium text-[#706B65] hover:text-[#171615] hover:bg-[#F8F5EF] rounded-sm transition-colors"
+                className="px-4 py-2.5 border border-[#E5E5E5] text-xs font-semibold text-[#555555] hover:text-[#111111] hover:bg-[#F5F5F5] rounded-sm transition-colors"
               >
                 Book Another Session
               </button>
             </div>
 
-            {/* Honest notification note */}
-            <p className="text-[11px] text-[#706B65] max-w-sm mx-auto">
+            <p className="text-[11px] text-[#777777] max-w-sm mx-auto">
               A copy of this appointment schedule is maintained. Once mail server credentials are configured in production, automatic confirmation emails will be dispatched to <strong>{formData.email}</strong>.
             </p>
           </div>
