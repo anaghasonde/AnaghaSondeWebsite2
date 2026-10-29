@@ -63,9 +63,9 @@ export const siteConfig = {
     timezone: "Asia/Kolkata (IST)",
     availabilityNotice: "Free clarity calls coordinated by mutual agreement following request.",
     social: {
-      instagram: "https://instagram.com/mindmattersbyanagha", // Placeholder
-      linkedin: "https://linkedin.com/in/anagha-sonde", // Placeholder
-      youtube: "",
+      instagram: "https://www.instagram.com/anaghasonde/",
+      linkedin: "https://www.linkedin.com/in/anagha-sonde/",
+      youtube: "https://www.youtube.com/@anaghasonde",
     },
   },
 

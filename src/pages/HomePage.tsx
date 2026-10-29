@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Calendar, ArrowRight, ShieldCheck, BookOpen } from 'lucide-react';
 
 import { siteConfig } from '../config/siteConfig';
 import { RedLine, BrandBadge } from '../components/GoldMotif';
+import { BookCover } from '../components/BookCover';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FaqAccordion } from '../components/FaqAccordion';
 
@@ -346,6 +347,199 @@ export const HomePage: React.FC = () => {
           </div>
 
           <FaqAccordion />
+
+        </div>
+      </section>
+
+      {/* 8. MY BOOK SECTION, SOCIAL MEDIA ICONS & BOOK A FREE CLARITY CALL */}
+      <section className="py-24 bg-white border-b border-[#E5E5E5] relative overflow-hidden" id="my-book">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center space-y-3 mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#C62828]">
+              Personal Memoir & Publication
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111] leading-snug">
+              An Author. A Life Coach. <br />
+              <span className="italic font-normal">A Believer in Finding Your Way Back to Yourself.</span>
+            </h2>
+            <RedLine />
+          </div>
+
+          {/* Editorial 2-Column Feature */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Book Cover Presentation */}
+            <div className="lg:col-span-5 flex justify-center">
+              <Link to="/book" className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] rounded-md transition-transform hover:scale-[1.01]" aria-label="Explore the book Welcome Back to Yourself">
+                <BookCover size="lg" show3D={true} badge="Official Memoir Cover" />
+              </Link>
+            </div>
+
+            {/* Book Details, Description, and CTAs */}
+            <div className="lg:col-span-7 space-y-6">
+              
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#C62828]">
+                    Official Memoir by Anagha Sonde
+                  </span>
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-black text-white font-semibold">
+                    {siteConfig.book.pillarsStatement}
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111111] mt-1">
+                  {siteConfig.book.title}
+                </h3>
+                <p className="font-serif italic text-base sm:text-lg text-[#C62828] font-semibold mt-1">
+                  "{siteConfig.book.subtitle}"
+                </p>
+                <p className="text-xs text-[#666666] mt-1">
+                  {siteConfig.book.tagline}
+                </p>
+              </div>
+
+              {/* Book Excerpt */}
+              <div className="space-y-3.5 text-sm sm:text-base text-[#444444] leading-relaxed">
+                <p>
+                  What happens when life takes you away from yourself?
+                </p>
+                <p>
+                  When expectations become louder than your own voice, when rejection leaves you questioning your worth, or when uncertainty makes you wonder whether you are on the right path, it is easy to lose touch with the person you once knew yourself to be.
+                </p>
+                <p>
+                  <strong>Welcome Back to Yourself</strong>, written by Anagha Sonde, is a personal memoir about reinvention, self-discovery, and the journey of finding your way back to yourself.
+                </p>
+              </div>
+
+              {/* Themes Highlight */}
+              <div className="pt-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#111111] mb-2.5">
+                  Core Reflections in the Book:
+                </p>
+                <ul className="space-y-2 text-xs sm:text-sm text-[#555555]">
+                  {siteConfig.book.themes.map((theme, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C62828] mt-2 shrink-0" />
+                      <span>{theme}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Final closing reminder */}
+              <div className="p-4 rounded-lg bg-[#F5F5F5] border-l-4 border-[#C62828] shadow-2xs">
+                <p className="font-serif text-sm sm:text-base font-bold text-[#111111] italic">
+                  "{siteConfig.book.closingQuote}"
+                </p>
+              </div>
+
+              {/* Book Links */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
+                <Link
+                  to="/book"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#111111] hover:bg-[#C62828] text-white text-sm font-bold rounded-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]"
+                >
+                  <BookOpen className="w-4 h-4 text-white" />
+                  <span>Discover the Book</span>
+                </Link>
+
+                <Link
+                  to="/book#get-copy"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-[#F5F5F5] text-[#111111] text-sm font-bold rounded-sm border border-[#111111] hover:border-[#C62828] hover:text-[#C62828] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]"
+                >
+                  <span>Get Your Copy</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bridge between book and coaching */}
+          <div className="mt-16 pt-12 border-t border-[#E5E5E5] max-w-4xl mx-auto text-center space-y-4">
+            <span className="text-xs uppercase tracking-widest text-[#C62828] font-bold">
+              The Shared Intention
+            </span>
+            <p className="font-serif italic text-base sm:text-lg text-[#111111] leading-relaxed">
+              "{siteConfig.book.bridgeToCoaching}"
+            </p>
+            <p className="text-xs uppercase tracking-widest text-[#555555] font-semibold pt-1">
+              <strong>{siteConfig.brand.name}</strong> — <span className="text-[#C62828] font-bold">{siteConfig.brand.tagline}</span>
+            </p>
+          </div>
+
+          {/* SOCIAL MEDIA ICONS & BOOK A FREE CLARITY CALL BUTTON */}
+          <div className="mt-16 pt-12 border-t border-[#E5E5E5] max-w-2xl mx-auto text-center space-y-8">
+            
+            {/* Heading: Let's Connect */}
+            <div className="space-y-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#C62828]">
+                Stay In Touch
+              </span>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111]">
+                Let's Connect
+              </h3>
+            </div>
+
+            {/* Social Media Icons (3 Horizontally Spaced & Responsive) */}
+            <div className="flex items-center justify-center gap-5 sm:gap-6">
+              
+              {/* Instagram */}
+              <a
+                href={siteConfig.contact.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#F5F5F5] hover:bg-[#C62828] text-[#111111] hover:text-white border border-[#E5E5E5] hover:border-[#C62828] flex items-center justify-center transition-all duration-300 shadow-xs hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2"
+                aria-label="Visit Anagha Sonde on Instagram"
+              >
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href={siteConfig.contact.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#F5F5F5] hover:bg-[#C62828] text-[#111111] hover:text-white border border-[#E5E5E5] hover:border-[#C62828] flex items-center justify-center transition-all duration-300 shadow-xs hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2"
+                aria-label="Connect with Anagha Sonde on LinkedIn"
+              >
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.59 1.59 0 1 0 0 3.18 1.59 1.59 0 0 0 0-3.18z"/>
+                </svg>
+              </a>
+
+              {/* YouTube */}
+              <a
+                href={siteConfig.contact.social.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#F5F5F5] hover:bg-[#C62828] text-[#111111] hover:text-white border border-[#E5E5E5] hover:border-[#C62828] flex items-center justify-center transition-all duration-300 shadow-xs hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2"
+                aria-label="Watch Anagha Sonde on YouTube"
+              >
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+
+            </div>
+
+            {/* Book a Free Clarity Call button */}
+            <div className="pt-2">
+              <Link
+                to="/book-session"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm sm:text-base font-bold rounded-sm transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828] focus-visible:ring-offset-2 border border-[#C62828] hover:border-[#8E1515] group"
+              >
+                <Calendar className="w-4 h-4 text-white" />
+                <span>Book a Free Clarity Call</span>
+                <ArrowRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+          </div>
 
         </div>
       </section>
