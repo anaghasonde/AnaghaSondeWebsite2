@@ -29,6 +29,9 @@ export const App: React.FC = () => {
             <Route path="/mind-matters" element={<MindMattersPage />} />
             <Route path="/book" element={<BookPage />} />
             <Route path="/book-session" element={<BookingPage />} />
+            <Route path="/booking" element={<Navigate to="/book-session" replace />} />
+            <Route path="/book-call" element={<Navigate to="/book-session" replace />} />
+            <Route path="/clarity-call" element={<Navigate to="/book-session" replace />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             {/* Catch-all route */}
             <Route path="*" element={<Navigate to="/" replace />} />

@@ -61,7 +61,7 @@ export const siteConfig = {
     location: "Bengaluru, India & Online Worldwide",
     city: "Bengaluru",
     timezone: "Asia/Kolkata (IST)",
-    availabilityNotice: "Appointments available Monday to Saturday by prior reservation.",
+    availabilityNotice: "Free clarity calls coordinated by mutual agreement following request.",
     social: {
       instagram: "https://instagram.com/mindmattersbyanagha", // Placeholder
       linkedin: "https://linkedin.com/in/anagha-sonde", // Placeholder
@@ -69,13 +69,37 @@ export const siteConfig = {
     },
   },
 
+  booking: {
+    googleFormUrl: "https://forms.gle/N9JdHjwbFJwUGVnX6",
+    pageHeading: "Book a Free Clarity Call",
+    introParagraphs: [
+      "Sometimes, all you need is a little space to pause, reflect, and understand yourself better.",
+      "At Mind Matters, I offer a free clarity call to help us connect, understand what brings you here, and explore whether life coaching with me might be right for you.",
+      "There is no pressure, no judgment, and no obligation to continue beyond this conversation.",
+      "To get started, please complete the short form below. Once I receive your request, I'll personally get in touch with you to coordinate a suitable time.",
+    ],
+    ctaButtonText: "Fill Out the Form",
+    steps: [
+      {
+        step: 1,
+        title: "You fill out the form.",
+        description: "Share your contact details and preferred time to connect.",
+      },
+      {
+        step: 2,
+        title: "I review your request.",
+        description: "I'll personally review your response.",
+      },
+      {
+        step: 3,
+        title: "We coordinate a time.",
+        description: "I'll contact you to agree on a suitable time for your free clarity call.",
+      },
+    ],
+    note: "Submitting the form is a request, not a confirmed appointment. Your call will be confirmed once we have agreed on a date and time.",
+  },
+
   sessionDetails: {
-    durationMinutes: 60,
-    durationDisplay: "",
-    feeAmount: 0,
-    feeCurrency: "₹",
-    feeDisplay: "",
-    feeNote: "",
     formats: [
       {
         id: "online",
@@ -88,21 +112,6 @@ export const siteConfig = {
         description: "Quiet, reflective, confidential space in Bengaluru. Subject to schedule availability.",
       },
     ],
-    // Available appointment time slots in Asia/Kolkata timezone
-    standardTimeSlots: [
-      "10:00 AM - 11:00 AM",
-      "11:30 AM - 12:30 PM",
-      "02:30 PM - 03:30 PM",
-      "04:00 PM - 05:00 PM",
-      "05:30 PM - 06:30 PM",
-      "07:00 PM - 08:00 PM",
-    ],
-    // Integration settings
-    integrations: {
-      isBackendConfigured: false, // Set to true once backend or webhook is connected
-      bookingProvider: "direct", // 'direct' | 'calendly' | 'cal.com' | 'google-calendar'
-      externalBookingUrl: "", // Provide Cal.com or Calendly link here if preferred
-    },
   },
 
   book: {
@@ -357,7 +366,7 @@ export const siteConfig = {
     {
       question: "What if I am unsure which service is right for me?",
       answer:
-        "That is completely natural and very common. You can select 'Not Sure — Help Me Choose' when booking or reach out by email at anaghasonde2108@gmail.com. During our first conversation, we can discuss what is currently on your mind and naturally shape the coaching focus around your needs.",
+        "That is completely natural and very common. You can mention this when completing your free clarity call request or reach out by email at anaghasonde2108@gmail.com. During our first conversation, we can discuss what is currently on your mind and naturally shape the coaching focus around your needs.",
     },
     {
       question: "Is life coaching the same as therapy or counselling?",
@@ -367,7 +376,7 @@ export const siteConfig = {
     {
       question: "How do I book my first session?",
       answer:
-        "You can book directly using the 'Book a Free Clarity Call' form on this website. Simply select your service, choose an available date and time slot in Asia/Kolkata timezone, provide your basic contact details, and confirm. You will receive immediate booking confirmation and instructions.",
+        "You can request a free clarity call using the form on this website. Simply complete the short form with your contact details and preferred time to connect. Once Anagha receives your request, she will personally get in touch with you to coordinate a suitable date and time.",
     },
   ] as FaqItem[],
 

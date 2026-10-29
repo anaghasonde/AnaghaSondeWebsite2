@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ShieldCheck, MapPin } from 'lucide-react';
+import { ShieldCheck, MapPin, Mail, Calendar } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { RedLine, BrandBadge } from '../components/GoldMotif';
 import { AppointmentBooking } from '../components/AppointmentBooking';
@@ -14,22 +14,32 @@ export const BookingPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
           <BrandBadge>Introductory Conversation</BrandBadge>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111111]">
-            Let's Make Time for You.
-          </h1>
-          <p className="font-serif italic text-lg sm:text-xl text-[#C62828] font-semibold">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111111] tracking-tight">
             Book a Free Clarity Call
-          </p>
+          </h1>
           <RedLine />
-          <p className="text-sm sm:text-base text-[#444444] max-w-2xl mx-auto mt-4 leading-relaxed">
-            The free clarity call is an introductory conversation to understand your needs, explore where you are, and determine whether life coaching is appropriate for you.
-          </p>
+          
+          {/* Introductory text */}
+          <div className="text-sm sm:text-base text-[#444444] leading-relaxed space-y-3.5 pt-2 text-left sm:text-center">
+            <p>
+              Sometimes, all you need is a little space to pause, reflect, and understand yourself better.
+            </p>
+            <p>
+              At Mind Matters, I offer a free clarity call to help us connect, understand what brings you here, and explore whether life coaching with me might be right for you.
+            </p>
+            <p>
+              There is no pressure, no judgment, and no obligation to continue beyond this conversation.
+            </p>
+            <p className="font-medium text-[#111111]">
+              To get started, please complete the short form below. Once I receive your request, I'll personally get in touch with you to coordinate a suitable time.
+            </p>
+          </div>
         </div>
 
         {/* 2-Column Desktop Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
           {/* Left Column: Reassuring Intro, Session Info, What to Expect */}
           <div className="lg:col-span-5 space-y-6">
@@ -43,7 +53,7 @@ export const BookingPage: React.FC = () => {
                 Your Space to Pause
               </h2>
               <p className="text-sm text-[#444444] leading-relaxed">
-                Choose a time that works for you, and give yourself the space to pause, reflect, and share what is on your mind. You do not need to have everything planned out or rehearsed.
+                Give yourself the space to pause, reflect, and share what is on your mind. You do not need to have everything planned out or rehearsed.
               </p>
               
               <div className="pt-2 border-t border-[#E5E5E5]">
@@ -64,7 +74,9 @@ export const BookingPage: React.FC = () => {
                   <ShieldCheck className="w-4 h-4 text-[#C62828] shrink-0 mt-0.5" />
                   <div>
                     <strong className="text-[#111111]">Introductory Conversation:</strong>
-                    <p className="text-[11px] text-[#666666]">A dedicated space to discuss your goals and explore how coaching can support you.</p>
+                    <p className="text-[11px] text-[#666666]">
+                      A 1-on-1 space to connect, discuss what brings you here, and explore whether life coaching is right for you.
+                    </p>
                   </div>
                 </div>
 
@@ -74,7 +86,29 @@ export const BookingPage: React.FC = () => {
                     <strong className="text-[#111111]">Formats Available:</strong>
                     <p className="text-[11px] text-[#666666]">
                       • <strong>Online:</strong> Video call (Google Meet / Zoom) across India & globally.<br />
-                      • <strong>In-Person:</strong> Bengaluru (quiet, reflective space, subject to availability).
+                      • <strong>In-Person:</strong> Bengaluru (quiet, reflective space, subject to schedule availability).
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Calendar className="w-4 h-4 text-[#C62828] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-[#111111]">Mutual Scheduling:</strong>
+                    <p className="text-[11px] text-[#666666]">
+                      Dates and times are coordinated personally after reviewing your request.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Mail className="w-4 h-4 text-[#C62828] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-[#111111]">Direct Contact:</strong>
+                    <p className="text-[11px] text-[#666666]">
+                      <a href={`mailto:${siteConfig.contact.email}`} className="text-[#C62828] hover:underline font-medium">
+                        {siteConfig.contact.email}
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -115,7 +149,7 @@ export const BookingPage: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Interactive Booking Widget */}
+          {/* Right Column: Google Form Request Card & What Happens Next */}
           <div className="lg:col-span-7">
             <AppointmentBooking initialServiceId={requestedServiceId} />
           </div>
