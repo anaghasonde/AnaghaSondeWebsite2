@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Clock, ShieldCheck, MapPin } from 'lucide-react';
+import { ShieldCheck, MapPin } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { RedLine, BrandBadge } from '../components/GoldMotif';
 import { AppointmentBooking } from '../components/AppointmentBooking';
@@ -15,16 +15,16 @@ export const BookingPage: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
-          <BrandBadge>Direct Reservation</BrandBadge>
+          <BrandBadge>Introductory Conversation</BrandBadge>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111111]">
             Let's Make Time for You.
           </h1>
           <p className="font-serif italic text-lg sm:text-xl text-[#C62828] font-semibold">
-            Book a Confidential Coaching Session
+            Book a Free Clarity Call
           </p>
           <RedLine />
           <p className="text-sm sm:text-base text-[#444444] max-w-2xl mx-auto mt-4 leading-relaxed">
-            Sometimes, the first step towards change is simply making time for yourself. Whether you are navigating uncertainty, looking for motivation, working through personal challenges, or seeking a deeper understanding of yourself, let's begin with a conversation.
+            The free clarity call is an introductory conversation to understand your needs, explore where you are, and determine whether life coaching is appropriate for you.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export const BookingPage: React.FC = () => {
                 Your Space to Pause
               </h2>
               <p className="text-sm text-[#444444] leading-relaxed">
-                Choose a session that works for you, and give yourself the space to pause, reflect, and move forward. You do not need to have everything planned out or rehearsed.
+                Choose a time that works for you, and give yourself the space to pause, reflect, and share what is on your mind. You do not need to have everything planned out or rehearsed.
               </p>
               
               <div className="pt-2 border-t border-[#E5E5E5]">
@@ -56,23 +56,15 @@ export const BookingPage: React.FC = () => {
             {/* Session Details Card */}
             <div className="p-6 rounded-2xl bg-white border border-[#E5E5E5] shadow-xs space-y-4">
               <h3 className="font-serif text-lg font-bold text-[#111111] border-b border-[#E5E5E5] pb-2">
-                Session Logistics
+                Clarity Call Logistics
               </h3>
 
               <div className="space-y-3.5 text-xs sm:text-sm">
                 <div className="flex items-start gap-3">
-                  <Clock className="w-4 h-4 text-[#C62828] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-[#111111]">Duration:</strong> {siteConfig.sessionDetails.durationDisplay}
-                    <p className="text-[11px] text-[#666666]">Dedicated, uninterrupted one-to-one exploration.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
                   <ShieldCheck className="w-4 h-4 text-[#C62828] shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-[#111111]">Investment:</strong> <span className="font-bold text-[#C62828]">{siteConfig.sessionDetails.feeDisplay}</span>
-                    <p className="text-[11px] text-[#666666]">{siteConfig.sessionDetails.feeNote}</p>
+                    <strong className="text-[#111111]">Introductory Conversation:</strong>
+                    <p className="text-[11px] text-[#666666]">A dedicated space to discuss your goals and explore how coaching can support you.</p>
                   </div>
                 </div>
 

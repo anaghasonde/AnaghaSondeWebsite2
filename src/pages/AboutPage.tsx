@@ -59,7 +59,7 @@ export const AboutPage: React.FC = () => {
                 className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-xs font-bold rounded-sm transition-colors text-center shadow-sm"
               >
                 <Calendar className="w-3.5 h-3.5 text-white" />
-                <span>Book a Confidential Session</span>
+                <span>Book a Free Clarity Call</span>
               </Link>
             </div>
           </div>
@@ -160,16 +160,17 @@ export const AboutPage: React.FC = () => {
                 to="/book-session"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-bold rounded-sm transition-all shadow-sm"
               >
-                <span>Let's Connect</span>
+                <Calendar className="w-4 h-4 text-white" />
+                <span>Book a Free Clarity Call</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
-              <Link
-                to="/contact"
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#F5F5F5] text-[#111111] text-sm font-bold rounded-sm border-2 border-[#111111] hover:border-[#C62828] hover:text-[#C62828] transition-all"
               >
-                <span>Send a Message</span>
-              </Link>
+                <span>Email Anagha</span>
+              </a>
             </div>
 
           </div>

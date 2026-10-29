@@ -53,9 +53,9 @@ export const siteConfig = {
   },
 
   contact: {
-    // Editable contact details - replace with verified founder details
-    email: "contact@mindmattersbyanagha.com",
-    displayEmail: "contact@mindmattersbyanagha.com",
+    // Verified founder contact details
+    email: "anaghasonde2108@gmail.com",
+    displayEmail: "anaghasonde2108@gmail.com",
     phone: "+91 (Contact available upon booking)",
     displayPhone: "Available upon confirmed booking",
     location: "Bengaluru, India & Online Worldwide",
@@ -71,11 +71,11 @@ export const siteConfig = {
 
   sessionDetails: {
     durationMinutes: 60,
-    durationDisplay: "60 minutes",
-    feeAmount: 1000,
+    durationDisplay: "",
+    feeAmount: 0,
     feeCurrency: "₹",
-    feeDisplay: "₹1,000",
-    feeNote: "Session fee subject to confirmation before launch.",
+    feeDisplay: "",
+    feeNote: "",
     formats: [
       {
         id: "online",
@@ -258,7 +258,7 @@ export const siteConfig = {
         "A dedicated, private space to talk openly about what is happening in your life. Together, we can explore your concerns, identify patterns, understand your priorities, and work towards greater clarity.",
       suitableFor:
         "Suitable for people who want to discuss personal challenges, life transitions, relationships, boundaries, confidence, or important decisions.",
-      ctaText: "Explore One-to-One Coaching",
+      ctaText: "Book a Free Clarity Call",
       slug: "one-to-one-coaching",
     },
     {
@@ -270,7 +270,7 @@ export const siteConfig = {
         "For moments when you feel stuck, unmotivated, uncertain, or disconnected from your goals. Explore what is getting in your way, reconnect with what matters, and identify practical steps to move forward.",
       suitableFor:
         "People navigating career plateaus, decision fatigue, lack of clarity, or feeling paralyzed by too many options.",
-      ctaText: "Find Your Direction",
+      ctaText: "Book a Free Clarity Call",
       slug: "motivation-and-direction",
     },
     {
@@ -282,7 +282,7 @@ export const siteConfig = {
         "Understand yourself beyond the roles, expectations, and labels you carry. Explore your values, strengths, beliefs, needs, and aspirations to build a life that feels more authentic.",
       suitableFor:
         "Anyone experiencing an identity transition, questioning social scripts, or desiring deeper alignment with their core values.",
-      ctaText: "Begin Your Journey",
+      ctaText: "Book a Free Clarity Call",
       slug: "self-discovery-growth",
     },
     {
@@ -294,7 +294,7 @@ export const siteConfig = {
         "Explore self-doubt, fear of judgment, people-pleasing, and the pressure to meet others' expectations. Build a more compassionate understanding of yourself and make room for your own voice.",
       suitableFor:
         "Individuals who struggle with imposter syndrome, asserting boundaries, or making decisions independently of others' validation.",
-      ctaText: "Reconnect With Yourself",
+      ctaText: "Book a Free Clarity Call",
       slug: "confidence-self-belief",
     },
     {
@@ -306,7 +306,7 @@ export const siteConfig = {
         "Reflect on relationship patterns, communication, emotional needs, expectations, and boundaries. Develop a clearer understanding of what healthy, respectful connections mean to you.",
       suitableFor:
         "Those feeling drained in personal or professional relationships, struggling to say no, or navigating shifting relationship dynamics.",
-      ctaText: "Let's Talk",
+      ctaText: "Book a Free Clarity Call",
       slug: "relationships-boundaries",
     },
     {
@@ -318,7 +318,7 @@ export const siteConfig = {
         "Navigate periods of uncertainty, change, career transitions, shifting priorities, or difficult choices with a space to reflect and consider your options.",
       suitableFor:
         "Individuals facing major career shifts, relocation, milestone birthdays, empty-nest transitions, or critical life choices.",
-      ctaText: "Gain Clarity",
+      ctaText: "Book a Free Clarity Call",
       slug: "life-transitions-decisions",
     },
   ] as ServiceItem[],
@@ -337,7 +337,7 @@ export const siteConfig = {
     {
       question: "What happens during a one-to-one session?",
       answer:
-        "Every 60-minute session is guided by what you wish to bring. We begin with where you are, unpack your thoughts, examine underlying beliefs or patterns, and explore perspectives. By the end of the session, you choose what insights or realistic steps you wish to take forward. It is conversational, warm, and entirely confidential.",
+        "Each session is guided by what you wish to bring. We begin with where you are, unpack your thoughts, examine underlying beliefs or patterns, and explore perspectives. By the end of the session, you choose what insights or realistic steps you wish to take forward. It is conversational, warm, and entirely confidential.",
     },
     {
       question: "Are coaching conversations confidential?",
@@ -357,7 +357,7 @@ export const siteConfig = {
     {
       question: "What if I am unsure which service is right for me?",
       answer:
-        "That is completely natural and very common. You can select 'Not Sure — Help Me Choose' when booking or reach out through the contact form. During our first conversation, we can discuss what is currently on your mind and naturally shape the coaching focus around your needs.",
+        "That is completely natural and very common. You can select 'Not Sure — Help Me Choose' when booking or reach out by email at anaghasonde2108@gmail.com. During our first conversation, we can discuss what is currently on your mind and naturally shape the coaching focus around your needs.",
     },
     {
       question: "Is life coaching the same as therapy or counselling?",
@@ -367,7 +367,7 @@ export const siteConfig = {
     {
       question: "How do I book my first session?",
       answer:
-        "You can book directly using the 'Book an Appointment' form on this website. Simply select your service, choose an available date and time slot in Asia/Kolkata timezone, provide your basic contact details, and confirm. You will receive immediate booking confirmation and instructions.",
+        "You can book directly using the 'Book a Free Clarity Call' form on this website. Simply select your service, choose an available date and time slot in Asia/Kolkata timezone, provide your basic contact details, and confirm. You will receive immediate booking confirmation and instructions.",
     },
   ] as FaqItem[],
 
@@ -415,6 +415,6 @@ export const siteConfig = {
     confidentialityNotice:
       "All coaching sessions are held with high professional regard for privacy and confidentiality, subject to applicable legal exceptions and personal safety concerns.",
     pricingDisclaimer:
-      "Session fees and durations listed are current as of October 2026 and are subject to confirmation at the time of final booking.",
+      "Coaching conversations and clarity calls are scheduled by reservation in accordance with professional ethical standards.",
   },
 };

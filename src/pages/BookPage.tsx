@@ -179,15 +179,15 @@ export const BookPage: React.FC = () => {
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-bold rounded-sm transition-all shadow-sm"
               >
                 <Calendar className="w-4 h-4 text-white" />
-                <span>Book a One-to-One Session</span>
+                <span>Book a Free Clarity Call</span>
               </Link>
 
-              <Link
-                to="/contact"
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-[#F5F5F5] text-[#111111] text-sm font-bold rounded-sm border-2 border-[#111111] hover:border-[#C62828] hover:text-[#C62828] transition-all"
               >
-                <span>Contact the Author</span>
-              </Link>
+                <span>Email the Author</span>
+              </a>
             </div>
 
           </div>

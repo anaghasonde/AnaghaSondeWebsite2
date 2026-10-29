@@ -65,10 +65,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, featured = fa
           to={`/book-session?service=${service.id}`}
           className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#111111] group-hover:text-[#C62828] transition-colors"
         >
-          <span>{service.ctaText}</span>
+          <span>Book a Free Clarity Call</span>
           <ArrowRight className="w-3.5 h-3.5 text-[#C62828] group-hover:translate-x-1 transition-transform" />
         </Link>
-        <span className="text-[11px] text-[#777777] font-medium">60 Mins</span>
       </div>
     </div>
   );

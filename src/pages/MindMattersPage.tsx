@@ -120,7 +120,7 @@ export const MindMattersPage: React.FC = () => {
             Give yourself the space you have been waiting for.
           </h3>
           <p className="text-sm text-[#555555] max-w-md mx-auto">
-            Book a confidential one-to-one coaching session to begin exploring what matters to you.
+            Book a free clarity call to begin exploring what matters to you.
           </p>
           <div className="pt-2">
             <Link
@@ -128,7 +128,7 @@ export const MindMattersPage: React.FC = () => {
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-bold rounded-sm transition-all shadow-sm"
             >
               <Calendar className="w-4 h-4 text-white" />
-              <span>Book an Appointment</span>
+              <span>Book a Free Clarity Call</span>
             </Link>
           </div>
         </div>

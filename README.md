@@ -31,14 +31,13 @@ The website features a bold, sophisticated, confident, and modern **Red, Black, 
 
 | Route | Page | Purpose & Content |
 |---|---|---|
-| `/` | **Home** | Hero section with updated founder portrait & tagline, What Is Life Coaching, About intro, "Welcome Back to Yourself" author feature, 6 service cards, Coaching Philosophy in Black, 4-step session journey, **Words That Matter (Testimonials)**, Mind Matters themes, 9-item FAQ accordion, and interactive appointment booking. |
+| `/` | **Home** | Hero section with updated founder portrait & tagline, About Anagha intro, What Is Life Coaching, Coaching Philosophy, **Words That Matter (Testimonials)**, Mind Matters initiative themes, and 9-item FAQ accordion with "Book a Free Clarity Call" primary CTAs. |
 | `/about` | **About Anagha** | Detailed personal story, Achology 2020 certification, founding of Mind Matters in 2022, verification note on ~150 clients, and philosophy of listening before advising. |
 | `/life-coaching` | **What is Life Coaching?** | Deep-dive educational guide, the 4 principles (Self-awareness, Clarity, Confidence, Meaningful action), and a transparent coaching vs. therapy comparison. |
-| `/services` | **My Services** | All 6 life coaching services detailed with ideal-client scenarios, session length, and pricing breakdown. |
+| `/services` | **My Services** | All 6 life coaching services detailed with ideal-client scenarios, 4-step session journey ("What to Expect From a Session"), and "Book a Free Clarity Call" CTAs. |
 | `/mind-matters` | **Mind Matters** | The personal coaching initiative and 8 core conversation themes for reconnecting with yourself. |
 | `/book` | **My Book** | Dedicated feature for the memoir *"Welcome Back to Yourself"*, synopsis, core reflections, edition availability, and connection to coaching. |
-| `/book-session` | **Book an Appointment** | 5-step genuine appointment booking system with date picker, Asia/Kolkata time slots, format selection, summary review, and calendar (.ics) download. |
-| `/contact` | **Contact** | Welcoming contact enquiry form, verified contact details, timezone, and location. |
+| `/book-session` | **Book a Free Clarity Call** | 5-step genuine appointment booking system with date picker, Asia/Kolkata time slots, format selection, summary review, and calendar (.ics) download. |
 | `/privacy` | **Privacy Policy** | Comprehensive data collection policies, storage, deletion rights, confidentiality limits, and non-clinical mental health disclaimer. |
 
 ---
@@ -113,7 +112,7 @@ Open `src/config/siteConfig.ts` under `testimonialsSection.items`:
 ### Updating Business & Contact Information
 ```typescript
 contact: {
-  email: "contact@mindmattersbyanagha.com",
+  email: "anaghasonde2108@gmail.com",
   phone: "+91 ...",
   city: "Bengaluru",
   timezone: "Asia/Kolkata (IST)",
@@ -124,13 +123,13 @@ contact: {
 }
 ```
 
-### Updating Pricing & Sessions
+### Updating Session Details
 ```typescript
 sessionDetails: {
-  durationMinutes: 60,
-  durationDisplay: "60 minutes",
-  feeDisplay: "₹1,000",
-  feeNote: "Session fee subject to confirmation before launch.",
+  durationMinutes: 0,
+  durationDisplay: "",
+  feeDisplay: "",
+  feeNote: "",
 }
 ```
 
@@ -155,8 +154,7 @@ sessionDetails: {
 
 ## 7. Verification Checklist Before Going Live
 
-- [ ] Confirm the exact session fee (currently set to `₹1,000`, subject to founder verification).
-- [ ] Confirm official business email and telephone number.
+- [ ] Confirm official business email (`anaghasonde2108@gmail.com`) and telephone number.
 - [ ] Verify social media profile URLs (LinkedIn, Instagram).
 - [ ] Verify client count claim (~150 clients supported) prior to public marketing.
 - [ ] Replace placeholder testimonials in `src/config/siteConfig.ts` with approved client reviews.

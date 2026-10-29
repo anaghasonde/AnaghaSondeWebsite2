@@ -26,27 +26,6 @@ export const ServicesPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Pricing & Duration Bar */}
-        <div className="max-w-4xl mx-auto p-6 rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] shadow-xs mb-14">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-[#E5E5E5]">
-            <div className="space-y-1">
-              <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold">Session Duration</span>
-              <p className="font-serif text-xl font-bold text-[#111111]">60 Minutes</p>
-              <p className="text-[11px] text-[#777777]">Dedicated, unhurried time for reflection</p>
-            </div>
-            <div className="space-y-1 pt-4 md:pt-0">
-              <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold">Session Fee</span>
-              <p className="font-serif text-xl font-bold text-[#C62828]">{siteConfig.sessionDetails.feeDisplay}</p>
-              <p className="text-[11px] text-[#777777]">{siteConfig.sessionDetails.feeNote}</p>
-            </div>
-            <div className="space-y-1 pt-4 md:pt-0">
-              <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold">Session Formats</span>
-              <p className="font-serif text-base font-bold text-[#111111]">Online & Bengaluru</p>
-              <p className="text-[11px] text-[#777777]">Online worldwide or in-person by reservation</p>
-            </div>
-          </div>
-        </div>
-
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {siteConfig.services.map((service, index) => (
@@ -54,6 +33,57 @@ export const ServicesPage: React.FC = () => {
               <ServiceCard service={service} featured={index === 0} />
             </div>
           ))}
+        </div>
+
+        {/* What to Expect From a Session (4-Step Visual Journey) */}
+        <div className="mt-20 pt-16 border-t border-[#E5E5E5]">
+          <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#C62828]">
+              The Process
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111]">
+              What to Expect From a Session
+            </h2>
+            <RedLine />
+            <p className="text-sm sm:text-base text-[#444444]">
+              A simple, respectful four-step journey designed around your comfort and individual pace.
+            </p>
+          </div>
+
+          {/* 4 Steps Journey */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {siteConfig.sessionJourney.map((step) => (
+              <div
+                key={step.step}
+                className="relative p-6 rounded-xl bg-white border border-[#E5E5E5] shadow-xs flex flex-col justify-between hover:border-[#C62828] transition-all"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-mono font-bold text-[#C62828] bg-red-50 px-2 py-0.5 rounded border border-red-100">
+                      Step 0{step.step}
+                    </span>
+                    <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold">Phase {step.step}</span>
+                  </div>
+
+                  <h3 className="font-serif text-xl font-bold text-[#111111] mb-2">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-sm text-[#555555] leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 mt-4 border-t border-[#F5F5F5]">
+                  <span className="w-full h-1 bg-gradient-to-r from-[#C62828] to-transparent rounded-full block" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center text-xs text-[#666666] italic">
+            *Each session is guided organically by what you choose to bring, and may not strictly follow the same pattern every time.
+          </div>
         </div>
 
         {/* Companion Book Banner */}
@@ -110,15 +140,15 @@ export const ServicesPage: React.FC = () => {
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#C62828] hover:bg-[#8E1515] text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors shadow-sm"
             >
               <Calendar className="w-4 h-4 text-white" />
-              <span>Book An Exploration Session</span>
+              <span>Book a Free Clarity Call</span>
             </Link>
 
-            <Link
-              to="/contact"
+            <a
+              href={`mailto:${siteConfig.contact.email}`}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider rounded-sm transition-colors border border-white/20"
             >
-              <span>Enquire First</span>
-            </Link>
+              <span>Email Anagha</span>
+            </a>
           </div>
         </div>
 

@@ -40,7 +40,6 @@ export const Navbar: React.FC = () => {
     { name: 'Services', path: '/services' },
     { name: 'Mind Matters', path: '/mind-matters' },
     { name: 'My Book', path: '/book', badge: 'New' },
-    { name: 'Contact', path: '/contact' },
   ];
 
   const isActive = (path: string) => {
@@ -103,14 +102,14 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Action Button: Book an Appointment (Primary Red) */}
+          {/* Action Button: Book a Free Clarity Call (Primary Red) */}
           <div className="hidden md:flex items-center space-x-3">
             <Link
               to="/book-session"
               className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold tracking-wide text-white bg-[#C62828] hover:bg-[#8E1515] transition-all duration-300 rounded-sm shadow-sm hover:shadow group border border-[#C62828] hover:border-[#8E1515] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#C62828]"
             >
               <Calendar className="w-4 h-4 text-white" />
-              <span>Book an Appointment</span>
+              <span>Book a Free Clarity Call</span>
             </Link>
           </div>
 
@@ -120,7 +119,7 @@ export const Navbar: React.FC = () => {
               to="/book-session"
               className="px-3 py-1.5 text-xs font-semibold text-white bg-[#C62828] rounded-sm hover:bg-[#8E1515] transition-colors"
             >
-              Book
+              Free Call
             </Link>
             <button
               type="button"
@@ -182,7 +181,7 @@ export const Navbar: React.FC = () => {
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-[#C62828] hover:bg-[#8E1515] rounded-sm transition-colors text-center shadow-xs"
               >
                 <Calendar className="w-4 h-4 text-white" />
-                Book an Appointment
+                Book a Free Clarity Call
               </Link>
               
               <Link

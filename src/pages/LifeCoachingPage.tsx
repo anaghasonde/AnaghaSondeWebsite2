@@ -187,7 +187,7 @@ export const LifeCoachingPage: React.FC = () => {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#C62828] hover:bg-[#8E1515] text-white text-sm font-bold rounded-sm transition-all shadow-sm"
               >
                 <Calendar className="w-4 h-4 text-white" />
-                <span>Book a Session</span>
+                <span>Book a Free Clarity Call</span>
               </Link>
               <Link
                 to="/services"

@@ -86,7 +86,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/book-session" className="hover:text-white transition-colors flex items-center gap-2 font-bold text-[#C62828]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white" /> Book an Appointment
+                  <span className="w-1.5 h-1.5 rounded-full bg-white" /> Book a Free Clarity Call
                 </Link>
               </li>
             </ul>
@@ -178,10 +178,6 @@ export const Footer: React.FC = () => {
             <span className="hidden sm:inline text-white/20">•</span>
             <Link to="/privacy" className="hover:text-[#C62828] transition-colors underline-offset-2 hover:underline">
               Privacy Policy & Confidentiality
-            </Link>
-            <span className="hidden sm:inline text-white/20">•</span>
-            <Link to="/contact" className="hover:text-[#C62828] transition-colors underline-offset-2 hover:underline">
-              Contact
             </Link>
           </div>
 

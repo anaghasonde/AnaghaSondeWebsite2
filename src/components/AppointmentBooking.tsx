@@ -175,8 +175,8 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
   const downloadIcsCalendar = () => {
     if (!formData.date || !formData.timeSlot) return;
 
-    const title = `Life Coaching Session with Anagha Sonde (${selectedService?.title || 'Coaching'})`;
-    const description = `Mind Matters Confidential 60-min Life Coaching Session with Anagha Sonde. Format: ${formData.format === 'online' ? 'Online Video Call' : 'In-person (Bengaluru)'}. Booking Ref: ${bookingReference}`;
+    const title = `Free Clarity Call with Anagha Sonde (${selectedService?.title || 'Coaching'})`;
+    const description = `Mind Matters Free Clarity Call with Anagha Sonde. Format: ${formData.format === 'online' ? 'Online Video Call' : 'In-person (Bengaluru)'}. Booking Ref: ${bookingReference}`;
     const location = formData.format === 'online' ? 'Google Meet / Zoom (Link to be shared)' : 'Bengaluru, India';
 
     const icsContent = [
@@ -213,10 +213,10 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
       <div className="bg-[#111111] text-white px-6 py-4 flex flex-wrap items-center justify-between gap-3 border-b-2 border-[#C62828]">
         <div>
           <span className="text-xs uppercase tracking-widest text-[#C62828] font-bold">
-            Confidential Reservation
+            Free Clarity Call
           </span>
           <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
-            {currentStep === 5 ? 'Booking Confirmed' : 'Book a Coaching Session'}
+            {currentStep === 5 ? 'Clarity Call Scheduled' : 'Book a Free Clarity Call'}
           </h3>
         </div>
         
@@ -360,7 +360,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                 </h4>
                 <p className="text-sm text-[#555555] mt-1 flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#C62828]" />
-                  <span>Timezone: <strong>{siteConfig.contact.timezone}</strong> (60 minutes per session)</span>
+                  <span>Timezone: <strong>{siteConfig.contact.timezone}</strong></span>
                 </p>
               </div>
             </div>
@@ -430,7 +430,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
               </div>
             ) : (
               <div className="p-4 rounded-lg bg-[#F5F5F5] border border-[#E5E5E5] text-center text-xs text-[#555555]">
-                Please select a date above to view available 60-minute time slots.
+                Please select a date above to view available time slots.
               </div>
             )}
 
@@ -632,12 +632,12 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
 
                 <div>
                   <span className="text-xs uppercase tracking-wider text-[#666666] font-semibold block">
-                    Duration & Fee
+                    Session Type
                   </span>
                   <p className="font-bold text-[#C62828] mt-0.5 text-base">
-                    {siteConfig.sessionDetails.durationDisplay} — {siteConfig.sessionDetails.feeDisplay}
+                    Free Clarity Call
                   </p>
-                  <span className="text-[11px] text-[#777777]">{siteConfig.sessionDetails.feeNote}</span>
+                  <span className="text-[11px] text-[#777777]">Introductory consultation</span>
                 </div>
 
                 <div className="sm:col-span-2 pt-3 border-t border-[#E5E5E5]">
@@ -660,7 +660,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
             <div className="p-3.5 bg-red-50/50 rounded-lg border border-red-200 flex items-start gap-2.5 text-xs text-[#333333]">
               <Info className="w-4 h-4 shrink-0 text-[#C62828] mt-0.5" />
               <div>
-                <strong>Appointment status:</strong> Submitting will record your preferred time slot and send a booking coordination request to Anagha Sonde. Your session is formally locked once scheduled and confirmed directly.
+                <strong>Appointment status:</strong> Submitting will record your preferred time slot and send a booking coordination request to Anagha Sonde. Your clarity call is formally scheduled upon receipt.
               </div>
             </div>
 
@@ -689,7 +689,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                 ) : (
                   <>
                     <CalendarIcon className="w-4 h-4 text-white" />
-                    <span>Confirm Coaching Session</span>
+                    <span>Confirm Clarity Call</span>
                   </>
                 )}
               </button>
@@ -706,13 +706,13 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
 
             <div>
               <span className="text-xs uppercase tracking-widest text-[#C62828] font-bold">
-                Session Requested & Scheduled
+                Clarity Call Scheduled
               </span>
               <h4 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111] mt-1">
                 Thank you, {formData.fullName}.
               </h4>
               <p className="text-sm text-[#555555] max-w-lg mx-auto mt-2">
-                Your appointment request has been prepared. We look forward to creating a thoughtful, reflective space for you.
+                Your free clarity call request has been received. We look forward to creating a thoughtful, reflective space for you.
               </p>
             </div>
 
@@ -729,16 +729,13 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
 
               <div className="text-xs text-[#111111] space-y-1.5">
                 <p>
-                  <strong>Service:</strong> {selectedService?.title}
+                  <strong>Service Focus:</strong> {selectedService?.title}
                 </p>
                 <p>
                   <strong>Format:</strong> {formData.format === 'online' ? 'Online Video Call' : 'In-person (Bengaluru)'}
                 </p>
                 <p>
                   <strong>Date & Time:</strong> {formData.date} ({formData.timeSlot} {siteConfig.contact.timezone})
-                </p>
-                <p>
-                  <strong>Duration:</strong> {siteConfig.sessionDetails.durationDisplay}
                 </p>
               </div>
             </div>
@@ -773,7 +770,7 @@ export const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
                 }}
                 className="px-4 py-2.5 border border-[#E5E5E5] text-xs font-semibold text-[#555555] hover:text-[#111111] hover:bg-[#F5F5F5] rounded-sm transition-colors"
               >
-                Book Another Session
+                Book Another Call
               </button>
             </div>
 

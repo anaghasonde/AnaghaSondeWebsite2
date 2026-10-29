@@ -28,13 +28,13 @@ export const BookCover: React.FC<BookCoverProps> = ({
   if (!show3D) {
     return (
       <div className={`relative ${selectedSize} ${className}`}>
-        <div className="overflow-hidden rounded-md border border-[#222222] shadow-xl bg-white">
+        <div className="overflow-hidden rounded-md border border-[#E5E5E5] shadow-lg bg-white">
           <img
             src={siteConfig.book.coverImage}
             alt={alt}
             width={640}
             height={1024}
-            className="w-full h-auto aspect-[5/8] object-contain block select-none"
+            className="w-full h-auto aspect-[5/8] object-cover block select-none"
             loading="lazy"
           />
         </div>
@@ -53,15 +53,15 @@ export const BookCover: React.FC<BookCoverProps> = ({
     <div className={`relative group ${selectedSize} w-full ${className}`}>
       {/* Ambient background soft glow */}
       <div
-        className="absolute -inset-2 bg-gradient-to-tr from-black/25 via-red-950/15 to-transparent rounded-r-xl blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+        className="absolute -inset-2 bg-gradient-to-tr from-black/15 via-red-950/10 to-transparent rounded-r-xl blur-lg opacity-60 group-hover:opacity-90 transition-opacity duration-500"
         aria-hidden="true"
       />
 
       {/* 3D Book Presentation Box */}
-      <div className="relative flex rounded-r-md transition-all duration-500 ease-out group-hover:-translate-y-1.5 group-hover:shadow-[18px_24px_45px_-8px_rgba(0,0,0,0.5)] shadow-[12px_16px_32px_-6px_rgba(0,0,0,0.4)]">
+      <div className="relative flex rounded-r-md transition-all duration-500 ease-out group-hover:-translate-y-1.5 group-hover:shadow-[18px_24px_45px_-8px_rgba(0,0,0,0.35)] shadow-[12px_16px_32px_-6px_rgba(0,0,0,0.25)]">
         {/* Spine: 3D binding edge */}
         <div
-          className="w-2.5 sm:w-3.5 bg-gradient-to-r from-[#0d0d0d] via-[#1a1a1a] to-[#2a2a2a] rounded-l-xs shrink-0 flex flex-col justify-between py-4 border-r border-black/40 shadow-inner"
+          className="w-2.5 sm:w-3.5 bg-gradient-to-r from-[#1a1a1a] via-[#262626] to-[#333333] rounded-l-xs shrink-0 flex flex-col justify-between py-4 border-r border-white/10 shadow-inner"
           aria-hidden="true"
         >
           <div className="h-5 w-full border-t border-b border-white/10" />
@@ -69,10 +69,10 @@ export const BookCover: React.FC<BookCoverProps> = ({
         </div>
 
         {/* Cover Art Wrapper */}
-        <div className="relative flex-1 bg-white overflow-hidden rounded-r-xs border-y border-r border-[#222222]">
+        <div className="relative flex-1 bg-white overflow-hidden rounded-r-xs border-y border-r border-neutral-200/50 shadow-2xs">
           {/* Subtle Spine hinge shadow along the left edge */}
           <div
-            className="absolute top-0 bottom-0 left-0 w-3 bg-gradient-to-r from-black/35 via-black/10 to-transparent pointer-events-none z-10"
+            className="absolute top-0 bottom-0 left-0 w-2 bg-gradient-to-r from-black/15 via-black/5 to-transparent pointer-events-none z-10"
             aria-hidden="true"
           />
 
@@ -88,13 +88,13 @@ export const BookCover: React.FC<BookCoverProps> = ({
             alt={alt}
             width={640}
             height={1024}
-            className="w-full h-auto aspect-[5/8] object-contain block bg-white select-none transition-transform duration-500 group-hover:scale-[1.01]"
+            className="w-full h-auto aspect-[5/8] object-cover block bg-white select-none transition-transform duration-500 group-hover:scale-[1.01]"
             loading="lazy"
           />
 
           {/* Fine paper edge highlight on right side */}
           <div
-            className="absolute top-0 right-0 bottom-0 w-[1.5px] bg-white/40 pointer-events-none"
+            className="absolute top-0 right-0 bottom-0 w-[1.5px] bg-white/50 pointer-events-none"
             aria-hidden="true"
           />
         </div>

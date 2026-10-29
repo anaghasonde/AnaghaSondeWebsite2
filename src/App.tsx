@@ -12,7 +12,6 @@ import { ServicesPage } from './pages/ServicesPage';
 import { MindMattersPage } from './pages/MindMattersPage';
 import { BookPage } from './pages/BookPage';
 import { BookingPage } from './pages/BookingPage';
-import { ContactPage } from './pages/ContactPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 
 export const App: React.FC = () => {
@@ -30,7 +29,6 @@ export const App: React.FC = () => {
             <Route path="/mind-matters" element={<MindMattersPage />} />
             <Route path="/book" element={<BookPage />} />
             <Route path="/book-session" element={<BookingPage />} />
-            <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             {/* Catch-all route */}
             <Route path="*" element={<Navigate to="/" replace />} />
